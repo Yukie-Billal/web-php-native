@@ -1,6 +1,6 @@
 <?php 
 
-include_once "../variabel.php";
+include __DIR__ . "/../variabel.php";
 
 $connection = mysqli_connect($host, $username, $password, $database);
 
