@@ -61,6 +61,23 @@
             </button>
          </div>
       </div>
+      <div style="height: 200px;" class="d-flex justify-content-center align-items-center gap-5">
+         <div class="item d-flex justify-content-center align-items-center flex-column">
+            <img src="..." alt="ICON">
+            <h6>Professional Team</h6>
+            <p>We have our professional team to manage our project</p>
+         </div>
+         <div class="item d-flex justify-content-center align-items-center flex-column">
+            <img src="..." alt="ICON">
+            <h6>We deliver Quality</h6>
+            <p>Quality is our services priority</p>
+         </div>
+         <div class="item d-flex justify-content-center align-items-center flex-column">
+            <img src="..." alt="ICON">
+            <h6>Competitive</h6>
+            <p>We provide competitive price, schedule and method</p>
+         </div>
+      </div>
    </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
