@@ -61,7 +61,7 @@
             </button>
          </div>
       </div>
-      <div style="height: 200px;" class="d-flex justify-content-center align-items-center gap-5">
+      <div style="height: 300px;" class="d-flex justify-content-center align-items-center gap-5">
          <div class="item d-flex justify-content-center align-items-center flex-column">
             <img src="..." alt="ICON">
             <h6>Professional Team</h6>
@@ -76,6 +76,33 @@
             <img src="..." alt="ICON">
             <h6>Competitive</h6>
             <p>We provide competitive price, schedule and method</p>
+         </div>
+      </div>
+   </div>
+   <div id="about-section" style="height: 80dvh;">
+      <div class="container">
+         <div id="about-title" class="d-flex justify-content-center mb-5">
+            <h5 class="fs-3 border-1 border-bottom border-black pb-3 px-4 fw-medium">ABOUT US</h5>
+         </div>
+         <div id="about-content" class="row px-5 mt-5 pt-5">
+            <div id="text-panel" class="col-6">
+               <h5 class="fs-2 fw-medium text-center mb-3">Who we are</h5>
+               <p style="text-align: justify;">We are a construction company established in 2003. Our company able to manage and executed any project and to be your reliable partner in the Engineering, Procurement and Construction with committed to customer satisfaction oriented.</p>
+
+               <p style="text-align: justify;">We have many experiences to manage any construction works for civil, structure, mechanical, piping, tank work and some electrical work at any industry such as :</p>
+
+               <ul>
+                  <li>Power Plant</li>
+                  <li>Oil and Gas</li>
+                  <li>Petrochemical</li>
+                  <li>Refinery Industry</li>
+                  <li>Material Handling</li>
+                  <li>Food Industry, Paper Industry etc</li>
+               </ul>
+            </div>
+            <div id="img-panel" class="col-6 px-5 py-2 rounded-circle">
+               <img src="./background.jpg" alt="" class="w-100 h-100 rounded-circle">
+            </div>
          </div>
       </div>
    </div>
