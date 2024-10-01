@@ -61,7 +61,7 @@
             </button>
          </div>
       </div>
-      <div style="height: 300px;" class="d-flex justify-content-center align-items-center gap-5">
+      <div style="height: 300px;" class="d-flex justify-content-center align-items-center gap-5 px-5">
          <div class="item d-flex justify-content-center align-items-center flex-column">
             <img src="..." alt="ICON">
             <h6>Professional Team</h6>
@@ -80,7 +80,7 @@
       </div>
    </div>
    <div id="about-section" style="height: 80dvh;">
-      <div class="container">
+      <div class="container px-5">
          <div id="about-title" class="d-flex justify-content-center mb-5">
             <h5 class="fs-3 border-1 border-bottom border-black pb-3 px-4 fw-medium">ABOUT US</h5>
          </div>
@@ -102,6 +102,37 @@
             </div>
             <div id="img-panel" class="col-6 px-5 py-2 rounded-circle">
                <img src="./background.jpg" alt="" class="w-100 h-100 rounded-circle">
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="service-section">
+      <div class="container px-5">
+         <div id="service-title" class="row">
+            <div class="col-12 d-flex justify-content-center mb-5">
+               <h5 class="fs-3 border-1 border-bottom border-black pb-3 px-4 fw-medium">WHAT WE OFFER</h5>
+            </div>
+         </div>
+         <div class="row px-5">
+            <div class="col-12">
+               <p class="text-center">WE CAN OFFER OUR CAPABILITY, TEAM WORK AND EXPERIENCES TO MANAGE ANY CONSTRUCTION WORKS FOR CIVIL, STRUCTURE, MECHANICAL, PIPING, TANK AND SOME ELECTRICAL WORKS</p>
+            </div>
+         </div>
+         <div class="row px-5">
+            <div class="col-4">
+               <img src="./background.jpg" alt="" class="w-100" height="160px">
+               <h6 class="fs-4 text-center mb-4 mt-1">Fabrication</h6>
+               <p class="text-center">We have a workshop for fabrication with best production capacity. We can work on steel fabrication, plates and tanks</p>
+            </div>
+            <div class="col-4">
+               <img src="./background.jpg" alt="" class="w-100" height="160px">
+               <h6 class="fs-4 text-center mb-4 mt-1">Fabrication</h6>
+               <p class="text-center">We have a workshop for fabrication with best production capacity. We can work on steel fabrication, plates and tanks</p>
+            </div>
+            <div class="col-4">
+               <img src="./background.jpg" alt="" class="w-100" height="160px">
+               <h6 class="fs-4 text-center mb-4 mt-1">Fabrication</h6>
+               <p class="text-center">We have a workshop for fabrication with best production capacity. We can work on steel fabrication, plates and tanks</p>
             </div>
          </div>
       </div>
