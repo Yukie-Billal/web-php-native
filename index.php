@@ -79,7 +79,7 @@
          </div>
       </div>
    </div>
-   <div id="about-section" style="height: 80dvh;">
+   <div id="about-section" class="py-4">
       <div class="container px-5">
          <div id="about-title" class="d-flex justify-content-center mb-5">
             <h5 class="fs-3 border-1 border-bottom border-black pb-3 px-4 fw-medium">ABOUT US</h5>
@@ -106,7 +106,7 @@
          </div>
       </div>
    </div>
-   <div id="service-section">
+   <div id="service-section" class="py-4">
       <div class="container px-5">
          <div id="service-title" class="row">
             <div class="col-12 d-flex justify-content-center mb-5">
