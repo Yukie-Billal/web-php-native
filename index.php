@@ -6,11 +6,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 
 <body>
    <div class="container-fluid p-0">
-      <nav class="navbar navbar-expand-lg bg-primary">
+      <nav class="navbar navbar-expand-lg">
          <div class="container-fluid px-4 py-1">
             <h1 class="navbar-brand fs-4" href="#">LOGO</h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,19 +20,19 @@
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                <ul class="navbar-nav">
                   <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                     <a class="nav-link text-white active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">About Us</a>
+                     <a class="nav-link text-white" href="#">About Us</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Project</a>
+                     <a class="nav-link text-white" href="#">Project</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Career</a>
+                     <a class="nav-link text-white" href="#">Career</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Contact</a>
+                     <a class="nav-link text-white" href="#">Contact</a>
                   </li>
                </ul>
             </div>

@@ -4,3 +4,11 @@
    box-sizing: border-box;
    font-family: "Poppins", sans-serif;
 }
+
+.navbar {
+   background-color: #2f3ec5;
+}
+
+.nav-item {
+   color: white !important;
+}
