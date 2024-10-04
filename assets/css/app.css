@@ -9,6 +9,7 @@
    background-color: #2f3ec5;
 }
 
-.nav-item {
+#navbar-menu .nav-item .navbar-link {
    color: white !important;
+   background-color: red !important;
 }
