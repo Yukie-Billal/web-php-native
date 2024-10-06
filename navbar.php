@@ -13,10 +13,10 @@
                <a class="nav-link" href="#">About Us</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">Project</a>
+               <a class="nav-link" href="#">Product</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">Career</a>
+               <a class="nav-link" href="#">Documentation</a>
             </li>
             <li class="nav-item">
                <a class="nav-link" href="#">Contact</a>
