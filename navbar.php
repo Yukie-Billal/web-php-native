@@ -4,7 +4,7 @@ $url_path = $_SERVER["REQUEST_URI"];
 
 ?>
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg fixed-top">
    <div class="container-fluid px-4 py-1">
       <h1 class="navbar-brand fs-4" href="#">LOGO</h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
