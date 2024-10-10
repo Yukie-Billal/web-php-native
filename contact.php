@@ -22,7 +22,7 @@ include "./header.php";
                <div class="col-12 mb-4">
                   <h6 class="text-center fs-1 fw-bold">KONTAK KAMI</h6>
                </div>
-               <div class="col-12 col-md-6 pt-4">
+               <div class="col-12 col-md-6 pt-4 pe-0 pe-md-2">
                   <p class="fs-2 fw-semibold">Sampaikan pertanyaan, saran atau kritik melalui formulir berikut.</p>
                   <div class="col-12 d-flex flex-column gap-3">
                      <div class="form-group">
@@ -46,7 +46,7 @@ include "./header.php";
                      </div>
                   </div>
                </div>
-               <div class="col-12 col-md-6 pt-4">
+               <div class="col-12 col-md-6 pt-4 pe-0 pe-md-2">
                   <div class="mapouter">
                      <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=cilegon&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" style="width: 590px; height: 400px;"></iframe>
                         <style>
