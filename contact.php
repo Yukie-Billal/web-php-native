@@ -9,8 +9,12 @@ include "./header.php";
       include "./navbar.php"
 
       ?>
-      <div id="hero-section">
-         <img src="./background.jpg" alt="" width="100%" style="height: 100vh;">
+      <div id="hero-section" class="w-100 d-flex justify-content-center align-items-center" style="height: 100vh;">
+         <img src="./background.jpg" alt="" width="100%" style="height: 100%;" class="position-absolute">
+         <div class="position-relative w-25 d-flex justify-content-center align-items-center flex-column">
+            <h2 class="border-bottom border-white text-center text-white fs-1 w-100">Kontak Kami</h2>
+            <button class="btn btn-primary" style="width: fit-content;">HELP</button>
+         </div>
       </div>
       <div class="contact-section">
          <div class="container py-5">
