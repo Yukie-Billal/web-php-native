@@ -13,7 +13,39 @@ include "./header.php";
          <img src="./background.jpg" alt="" width="100%" style="height: 100%;" class="position-absolute">
          <div class="position-relative w-25 d-flex justify-content-center align-items-center flex-column">
             <h2 class="border-bottom border-white text-center text-white fs-1 w-100 fw-semibold" style="text-shadow: 1px 1px 1px #1a1a1a;">Produk Kami</h2>
-            <a class="btn btn-primary" style="width: fit-content;" href="#contact-section">SELENGKAPNYA</a>
+            <a class="btn btn-primary" style="width: fit-content;" href="#product-section">SELENGKAPNYA</a>
+         </div>
+      </div>
+      <div id="product-section">
+         <div class="container-fluid">
+            <div class="row justify-content-center my-5 pb-5">
+               <div class="col-12 col-lg-6">
+                  <h2 class="text-center">Memberikan Produk Terbaik</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias architecto est. Quis incidunt quibusdam, ullam vitae fugiat officia sapiente quas voluptatibus. Delectus fugit illum, autem a magni, error laudantium deserunt nam tempora vero alias. Dolores cum et optio quas.</p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden">
+                  <img src="./background.jpg" alt="" width="100%" height="100%">
+                  <h2 class="text-center">TEXT</h2>
+               </div>
+               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden">
+                  <img src="./background.jpg" alt="" width="100%" height="100%">
+                  <h2 class="text-center">TEXT</h2>
+               </div>
+               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden">
+                  <img src="./background.jpg" alt="" width="100%" height="100%">
+                  <h2 class="text-center">TEXT</h2>
+               </div>
+               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden">
+                  <img src="./background.jpg" alt="" width="100%" height="100%">
+                  <h2 class="text-center">TEXT</h2>
+               </div>
+               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden">
+                  <img src="./background.jpg" alt="" width="100%" height="100%">
+                  <h2 class="text-center">TEXT</h2>
+               </div>
+            </div>
          </div>
       </div>
    </div>
