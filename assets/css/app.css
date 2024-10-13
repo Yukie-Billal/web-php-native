@@ -13,3 +13,14 @@
    color: white !important;
    background-color: red !important;
 }
+
+/* Produk Style */
+#product-section #product-list-wrapper .col-12 * {
+   transition: all .2s ease;
+}
+#product-section #product-list-wrapper .col-12:hover img {
+   transform: scale(115%);
+}
+#product-section #product-list-wrapper .col-12:hover h2 {
+   opacity: 0;
+}

@@ -24,25 +24,25 @@ include "./header.php";
                   <p class="text-center fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias architecto est. Quis incidunt quibusdam, ullam vitae fugiat officia sapiente quas voluptatibus. Delectus fugit illum, autem a magni, error laudantium deserunt nam tempora vero alias. Dolores cum et optio quas.</p>
                </div>
             </div>
-            <div class="row">
+            <div class="row" id="product-list-wrapper">
                <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="" width="100%" height="100%" class="position-absolute">
+                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
                   <h2 class="text-center text-white position-relative">TEXT</h2>
                </div>
                <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="" width="100%" height="100%" class="position-absolute">
+                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
                   <h2 class="text-center text-white position-relative">TEXT</h2>
                </div>
                <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="" width="100%" height="100%" class="position-absolute">
+                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
                   <h2 class="text-center text-white position-relative">TEXT</h2>
                </div>
                <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="" width="100%" height="100%" class="position-absolute">
+                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
                   <h2 class="text-center text-white position-relative">TEXT</h2>
                </div>
                <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="" width="100%" height="100%" class="position-absolute">
+                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
                   <h2 class="text-center text-white position-relative">TEXT</h2>
                </div>
             </div>
