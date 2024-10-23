@@ -9,9 +9,13 @@
    background-color: #2f3ec5;
 }
 
-#navbar-menu .nav-item .navbar-link {
-   color: white !important;
-   background-color: red !important;
+#navbar-menu .nav-item .nav-link {
+   color: whitesmoke !important;
+}
+
+#navbar-menu .nav-item .nav-link:hover {
+   color: whitesmoke !important;
+   text-decoration: underline;
 }
 
 /* Produk Style */
