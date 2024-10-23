@@ -16,7 +16,7 @@ include "./header.php";
             <a class="btn btn-primary" style="width: fit-content;" href="#product-section">SELENGKAPNYA</a>
          </div>
       </div>
-      <div id="product-section">
+      <div id="product-section" class="py-4 mb-5">
          <div class="container-fluid">
             <div class="row justify-content-center my-5 py-5">
                <div class="col-12 col-lg-6">
@@ -49,6 +49,9 @@ include "./header.php";
          </div>
       </div>
    </div>
+   <?php 
+   include "./footer.php"
+   ?>
 </body>
 
 </html>
