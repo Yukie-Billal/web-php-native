@@ -18,9 +18,9 @@ include "./header.php";
       </div>
       <div id="documentation-section" class="container-fluid py-5">
          <div class="row">
-            <div class="col-12">
+            <div class="col-12 py-5">
                <h6 class="text-center fs-2 fw-semibold">Dokumentasi Kegiatan</h6>
-               <h6 class="text-center fs-4 fw-medium">Lihat bagaimana aktifitas kami berlangsung</h6>
+               <h6 class="text-center fs-5 fw-medium">Lihat bagaimana aktifitas kami berlangsung</h6>
             </div>
          </div>
          <div class="row">
