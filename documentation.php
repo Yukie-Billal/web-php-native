@@ -29,6 +29,12 @@ include "./header.php";
                   <div class="item position-relative">
                      <img src="./background.jpg" alt=".." class="w-100 h-100 object-fit-cover">
                   </div>
+                  <div class="item position-relative">
+                     <img src="./background.jpg" alt=".." class="w-100 h-100 object-fit-cover">
+                  </div>
+                  <div class="item position-relative">
+                     <img src="./background.jpg" alt=".." class="w-100 h-100 object-fit-cover">
+                  </div>
                </div>
             </div>
             <div class="col-12 d-flex justify-content-between mt-4 px-5">
@@ -56,12 +62,11 @@ include "./header.php";
          }
       })
 
-      const buttonNextOwl = document.querySelector(".btn-owl-next")
-      const buttonPrevOwl = document.querySelector(".btn-owl-prev")
+      const buttonNextOwl = $(".btn-owl-next")
+      const buttonPrevOwl = $(".btn-owl-prev")
 
-      buttonNextOwl.addEventListener("click", () => {
-         
-      })
+      buttonNextOwl.click(() => owl.trigger("next.owl.carousel"))
+      buttonPrevOwl.click(() => owl.trigger("prev.owl.carousel"))
    </script>
 </body>
 
