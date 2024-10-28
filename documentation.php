@@ -31,6 +31,10 @@ include "./header.php";
                   </div>
                </div>
             </div>
+            <div class="col-12 d-flex justify-content-between mt-4 px-5">
+               <button class="btn btn-primary btn-lg btn-owl-prev">Sebelumnya</button>
+               <button class="btn btn-primary btn-lg btn-owl-next">Selanjutnya</button>
+            </div>
          </div>
       </div>
       <?php
@@ -38,7 +42,7 @@ include "./header.php";
       ?>
    </div>
    <script>
-      $('.owl-carousel').owlCarousel({
+      const owl = $('.owl-carousel').owlCarousel({
          loop: true,
          margin: 10,
          nav: true,
@@ -50,6 +54,13 @@ include "./header.php";
                items: 3
             }
          }
+      })
+
+      const buttonNextOwl = document.querySelector(".btn-owl-next")
+      const buttonPrevOwl = document.querySelector(".btn-owl-prev")
+
+      buttonNextOwl.addEventListener("click", () => {
+         
       })
    </script>
 </body>
