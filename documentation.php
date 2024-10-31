@@ -27,13 +27,22 @@ include "./header.php";
             <div class="col-12">
                <div class="owl-carousel owl-theme">
                   <div class="item position-relative">
-                     <img src="./background.jpg" alt=".." class="w-100 h-100 object-fit-cover">
+                     <div class="img-wrapper">
+                        <img src="./background.jpg" alt="..">
+                     </div>
+                     <div class="text-wrapper mt-3">
+                        <h6>Judul</h6>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis aspernatur eum dolores molestiae sed vero distinctio dicta optio illum magni?</p>
+                     </div>
                   </div>
                   <div class="item position-relative">
-                     <img src="./background.jpg" alt=".." class="w-100 h-100 object-fit-cover">
-                  </div>
-                  <div class="item position-relative">
-                     <img src="./background.jpg" alt=".." class="w-100 h-100 object-fit-cover">
+                     <div class="img-wrapper">
+                        <img src="./background.jpg" alt="..">
+                     </div>
+                     <div class="text-wrapper mt-3">
+                        <h6>Judul</h6>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis aspernatur eum dolores molestiae sed vero distinctio dicta optio illum magni?</p>
+                     </div>
                   </div>
                </div>
             </div>
