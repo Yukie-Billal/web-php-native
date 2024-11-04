@@ -9,6 +9,12 @@
    background-color: #2f3ec5;
 }
 
+.navbar .navbar-brand-wrapper .navbar-brand-text {
+   font-size: 22px;
+   font-weight: 500;
+   margin: 0;
+}
+
 #navbar-menu .nav-item .nav-link {
    color: whitesmoke !important;
 }

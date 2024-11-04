@@ -6,7 +6,12 @@ $url_path = $_SERVER["REQUEST_URI"];
 
 <nav class="navbar navbar-expand-lg fixed-top">
    <div class="container-fluid px-4 py-1">
-      <h1 class="navbar-brand fs-4" href="#">LOGO</h1>
+      <div class="navbar-brand-wrapper d-flex align-items-center justify-content-center">
+         <img src="./background.jpg" alt=".." style="width: 100px;" class="me-2">
+         <h6 class="navbar-brand-text" href="#">
+            <marquee>LOGO</marquee>
+         </h6>
+      </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
