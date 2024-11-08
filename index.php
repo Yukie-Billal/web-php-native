@@ -12,7 +12,7 @@ $features = get_features($connection);
 
       <?php
 
-      include "./navbar.php"
+      include "./navbar.php";
 
       ?>
 
@@ -51,21 +51,6 @@ $features = get_features($connection);
             echo $html;
          }
          ?>
-         <!-- <div class="item d-flex justify-content-center align-items-center flex-column" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
-            <img src="..." alt="ICON">
-            <h6>Professional Team</h6>
-            <p>We have our professional team to manage our project</p>
-         </div>
-         <div class="item d-flex justify-content-center align-items-center flex-column" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-            <img src="..." alt="ICON">
-            <h6>We deliver Quality</h6>
-            <p>Quality is our services priority</p>
-         </div>
-         <div class="item d-flex justify-content-center align-items-center flex-column" data-aos="fade-up" data-aos-delay="250" data-aos-duration="1000">
-            <img src="..." alt="ICON">
-            <h6>Competitive</h6>
-            <p>We provide competitive price, schedule and method</p>
-         </div> -->
       </div>
    </div>
    <div id="about-section" class="py-4">
