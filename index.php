@@ -1,7 +1,10 @@
 <?php
 
-include "./config/database.php";
+include __DIR__ . "/config/database.php";
+include __DIR__ . "/services/home.php";
 include "./header.php";
+
+$features = get_features($connection);
 
 ?>
 
@@ -38,6 +41,17 @@ include "./header.php";
          </div>
       </div>
       <div style="height: 300px;" class="d-flex justify-content-center align-items-center gap-5 px-5">
+         <?php
+         while ($feature = $features) {
+            $html = "<div class='item d-flex justify-content-center align-items-center flex-column' data-aos='fade-up' data-aos-delay='0' data-aos-duration='1000'>";
+            $html .= "<img src='...' alt='ICON'>";
+            $html .= "<h6>" . $feature['title'] . "</h6>";
+            $html .= "<p>" . $feature['description'] . "</p>";
+            $html .= "</div>";
+
+            echo $html;
+         }
+         ?>
          <div class="item d-flex justify-content-center align-items-center flex-column" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
             <img src="..." alt="ICON">
             <h6>Professional Team</h6>
