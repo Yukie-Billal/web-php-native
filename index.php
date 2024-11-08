@@ -5,7 +5,6 @@ include __DIR__ . "/services/home.php";
 include "./header.php";
 
 $features = get_features($connection);
-
 ?>
 
 <body>
@@ -42,7 +41,7 @@ $features = get_features($connection);
       </div>
       <div style="height: 300px;" class="d-flex justify-content-center align-items-center gap-5 px-5">
          <?php
-         while ($feature = $features) {
+         foreach ($features as $key => $feature) {
             $html = "<div class='item d-flex justify-content-center align-items-center flex-column' data-aos='fade-up' data-aos-delay='0' data-aos-duration='1000'>";
             $html .= "<img src='...' alt='ICON'>";
             $html .= "<h6>" . $feature['title'] . "</h6>";
@@ -52,7 +51,7 @@ $features = get_features($connection);
             echo $html;
          }
          ?>
-         <div class="item d-flex justify-content-center align-items-center flex-column" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
+         <!-- <div class="item d-flex justify-content-center align-items-center flex-column" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
             <img src="..." alt="ICON">
             <h6>Professional Team</h6>
             <p>We have our professional team to manage our project</p>
@@ -66,7 +65,7 @@ $features = get_features($connection);
             <img src="..." alt="ICON">
             <h6>Competitive</h6>
             <p>We provide competitive price, schedule and method</p>
-         </div>
+         </div> -->
       </div>
    </div>
    <div id="about-section" class="py-4">
