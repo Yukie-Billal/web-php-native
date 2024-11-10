@@ -46,7 +46,7 @@ $about_items = get_about_items($connection);
          <?php
          foreach ($features as $key => $feature) {
             $html = "<div class='item d-flex justify-content-center align-items-center flex-column' data-aos='fade-up' data-aos-delay='0' data-aos-duration='1000'>";
-            $html .= "<img src='...' alt='ICON'>";
+            $html .= "<img src='/" . $feature['icon_path'] . "' alt='ICON'>";
             $html .= "<h6>" . $feature['title'] . "</h6>";
             $html .= "<p>" . $feature['description'] . "</p>";
             $html .= "</div>";

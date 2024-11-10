@@ -9,12 +9,12 @@ $feature_datas = [
    [
       "title" => "We deliver Quality",
       "description" => "Quality is our services priority",
-      "icon_path" => "assets/upload/home_feature/1.svg",
+      "icon_path" => "assets/upload/home_feature/2.svg",
    ],
    [
       "title" => "Competitive",
       "description" => "We provide competitive price, schedule and method",
-      "icon_path" => "assets/upload/home_feature/1.svg",
+      "icon_path" => "assets/upload/home_feature/3.svg",
    ],
 ];
 
