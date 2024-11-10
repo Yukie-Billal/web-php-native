@@ -5,6 +5,7 @@ include __DIR__ . "/services/home.php";
 include "./header.php";
 
 $features = get_features($connection);
+$about = get_about($connection);
 ?>
 
 <body>
@@ -56,14 +57,14 @@ $features = get_features($connection);
    <div id="about-section" class="py-4">
       <div class="container px-5">
          <div id="about-title" class="d-flex justify-content-center mb-5">
-            <h5 class="fs-3 border-1 border-bottom border-black pb-3 px-4 fw-medium" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">ABOUT US</h5>
+            <h5 class="fs-3 border-1 border-bottom border-black pb-3 px-4 fw-medium" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000"><?= $about['about_title'] ?></h5>
          </div>
          <div id="about-content" class="row px-5 mt-5 pt-5">
             <div id="text-panel" class="col-6">
-               <h5 class="fs-2 fw-medium text-center mb-3" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">Who we are</h5>
-               <p style="text-align: justify;" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">We are a construction company established in 2003. Our company able to manage and executed any project and to be your reliable partner in the Engineering, Procurement and Construction with committed to customer satisfaction oriented.</p>
+               <h5 class="fs-2 fw-medium text-center mb-3" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000"><?= $about['about_text_title'] ?></h5>
+               <p style="text-align: justify;" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000"><?= $about['about_text_paragraf_1'] ?></p>
 
-               <p style="text-align: justify;" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">We have many experiences to manage any construction works for civil, structure, mechanical, piping, tank work and some electrical work at any industry such as :</p>
+               <p style="text-align: justify;" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000"><?= $about['about_text_paragraf_2'] ?></p>
 
                <ul data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
                   <li>Power Plant</li>
