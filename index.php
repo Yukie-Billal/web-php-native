@@ -6,6 +6,8 @@ include "./header.php";
 
 $features = get_features($connection);
 $about = get_about($connection);
+$about_items = get_about_items($connection);
+
 ?>
 
 <body>
@@ -67,12 +69,15 @@ $about = get_about($connection);
                <p style="text-align: justify;" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000"><?= $about['about_text_paragraf_2'] ?></p>
 
                <ul data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
-                  <li>Power Plant</li>
-                  <li>Oil and Gas</li>
-                  <li>Petrochemical</li>
-                  <li>Refinery Industry</li>
-                  <li>Material Handling</li>
-                  <li>Food Industry, Paper Industry etc</li>
+                  <?php
+                  foreach ($about_items as $key => $about_item) {
+                     $html = "<li>";
+                     $html .= $about_item['text'];
+                     $html .= "</li>";
+
+                     echo $html;
+                  }
+                  ?>
                </ul>
             </div>
             <div id="img-panel" class="col-6 px-5 py-2 rounded-circle">
