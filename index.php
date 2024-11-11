@@ -81,7 +81,7 @@ $about_items = get_about_items($connection);
                </ul>
             </div>
             <div id="img-panel" class="col-6 px-5 py-2 rounded-circle">
-               <img src="./background.jpg" alt="" class="w-100 h-100 rounded-circle" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
+               <img src="/<?= $about['about_image_path'] ?>" alt="" class="w-100 h-100 rounded-circle" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
             </div>
          </div>
       </div>
