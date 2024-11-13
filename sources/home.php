@@ -14,7 +14,7 @@ $feature_datas = [
    [
       "title" => "Competitive",
       "description" => "We provide competitive price, schedule and method",
-      "icon_path" => "assets/upload/home_feature/3.svg",
+      "icon_path" => "assets/upload/home_feature/3.svg", 
    ],
 ];
 

@@ -41,7 +41,7 @@ function about_seeder($connection, $datas): void {
 
    $db_count_item = mysqli_query($connection, "SELECT COUNT(*) AS count FROM home_about_items");
    if ($db_count_item) {
-      $count = $db_count_item->fetch_column();
+      $count = $db_count_item->fetch_assoc()["count"];
       if ($count <= 0) {
          foreach ($datas['about_body_list'] as $key => $data) {
             mysqli_query($connection, "INSERT INTO home_about_items VALUES (NULL, '$data')");
@@ -60,4 +60,36 @@ function get_about_items($connection) {
    return select($connection, "SELECT * FROM home_about_items");
 }
 
-?>
+function home_service_seeder($connection, $datas) {
+   $db_count_conf = mysqli_query($connection, "SELECT COUNT(*) AS count FROM home_service_config");
+   if ($db_count_conf) {
+      $count = $db_count_conf->fetch_assoc()['count']; 
+      if ($count <= 0) {
+         $title = $datas['service_title'];
+         $subt = $datas['service_subtitle'];
+         mysqli_query($connection, "INSERT INTO home_service_config VALUES (NULL, '$title', '$subt')");
+      }
+   }
+   $db_count = mysqli_query($connection, "SELECT COUNT(*) AS count FROM home_service_items");
+   if ($db_count) {
+      $count = $db_count->fetch_assoc()['count']; 
+      if ($count <= 0) {
+         foreach ($datas['service_items'] as $key => $data) {
+            $icon = $data['icon_path'];
+            $title = $data['title'];
+            $desc = $data['description'];
+            mysqli_query($connection, "INSERT INTO home_service_items VALUES (NULL, '$icon', '$title', '$desc')");
+         }
+      }
+   }
+}
+
+home_service_seeder($connection, $service_datas);
+
+function get_service_config($connection) {
+   return select($connection, "SELECT * FROM home_service_config")->fetch_assoc();
+}
+
+function get_service_items($connection) {
+   return select($connection, "SELECT * FROM home_service_items");
+}
