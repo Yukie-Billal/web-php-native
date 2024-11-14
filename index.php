@@ -4,6 +4,7 @@ include __DIR__ . "/config/database.php";
 include __DIR__ . "/services/home.php";
 include "./header.php";
 
+$slides = get_slides($connection);
 $features = get_features($connection);
 $about = get_about($connection);
 $about_items = get_about_items($connection);
@@ -24,15 +25,15 @@ $service_items = get_service_items($connection);
       <div class="carousel-wrapper" style="height: 600px; overflow: hidden;">
          <div id="carouselExample" class="carousel slide h-100" data-bs-ride="carousel">
             <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <img src="./background.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-                  <img src="./background.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-                  <img src="./background.jpg" class="d-block w-100" alt="...">
-               </div>
+               <?php
+               foreach ($slides as $key => $slide) {
+                  $html = '<div class="carousel-item active">';
+                  $html .= '<img src="'.$slide['img_path'].'" class="d-block w-100" alt="...">';
+                  $html .= '</div>';
+
+                  echo $html;
+               }
+               ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                <span class="carousel-control-prev-icon" aria-hidden="true"></span>

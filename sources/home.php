@@ -55,3 +55,15 @@ $service_datas = [
       ]
    ]
 ];
+
+$home_slide_datas = [
+   [
+      "img_path" => "assets/upload/home_slides/1.jpg",
+   ],
+   [
+      "img_path" => "assets/upload/home_slides/1.jpg",
+   ],
+   [
+      "img_path" => "assets/upload/home_slides/1.jpg",
+   ]
+];

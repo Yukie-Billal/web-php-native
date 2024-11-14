@@ -93,3 +93,22 @@ function get_service_config($connection) {
 function get_service_items($connection) {
    return select($connection, "SELECT * FROM home_service_items");
 }
+
+function slides_seeder($connection, $datas) {
+   $db_count = mysqli_query($connection, "SELECT COUNT(*) as count FROM home_slider");
+   if ($db_count) {
+      $count = $db_count->fetch_assoc()["count"];
+      if ($count <= 0) {
+         foreach ($datas as $key => $data) {
+            $img = $data["img_path"];
+            mysqli_query($connection,"INSERT INTO home_slider VALUES (NULL, '$img')");
+         }
+      }
+   }
+}
+
+slides_seeder($connection, $home_slide_datas);
+
+function get_slides($connetion) {
+   return select($connetion, "SELECT * FROM home_slider");
+}
