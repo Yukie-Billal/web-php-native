@@ -105,7 +105,7 @@ $service_items = get_service_items($connection);
             <?php
             foreach ($service_items as $key => $item) {
                $html = '<div class="col-4" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">';
-               $html .= '<img src="./background.jpg" alt="" class="w-100" height="160px">';
+               $html .= '<img src="/'.$item['icon_path'].'" alt="" class="w-100" height="160px">';
                $html .= '<h6 class="fs-4 text-center mb-4 mt-1">'.$item['title'].'</h6>';
                $html .= '<p class="text-center">'.$item['description'].'</p>';
                $html .= '</div>';

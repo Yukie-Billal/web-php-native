@@ -39,17 +39,17 @@ $service_datas = [
    "service_subtitle" => "WE CAN OFFER OUR CAPABILITY, TEAM WORK AND EXPERIENCES TO MANAGE ANY CONSTRUCTION WORKS FOR CIVIL, STRUCTURE, MECHANICAL, PIPING, TANK AND SOME ELECTRICAL WORKS",
    "service_items" => [
       [
-         "icon_path" => "",
+         "icon_path" => "assets/upload/home_service/1.jpg",
          "title" => "Fabrication",
          "description" => "We have a workshop for fabrication with best production capacity. We can work on steel fabrication, plates and tanks",
       ],
       [
-         "icon_path" => "",
+         "icon_path" => "assets/upload/home_service/1.jpg",
          "title" => "Fabrication",
          "description" => "We have a workshop for fabrication with best production capacity. We can work on steel fabrication, plates and tanks",
       ],
       [
-         "icon_path" => "",
+         "icon_path" => "assets/upload/home_service/1.jpg",
          "title" => "Fabrication",
          "description" => "We have a workshop for fabrication with best production capacity. We can work on steel fabrication, plates and tanks",
       ]
