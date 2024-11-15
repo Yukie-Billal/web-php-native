@@ -48,7 +48,7 @@ include "./header.php";
                </div>
                <div class="col-12 col-md-6 pt-4 pe-0 pe-md-2">
                   <div class="mapouter">
-                     <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=cilegon&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" style="width: 590px; height: 400px;"></iframe>
+                     <div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=-5.977536,106.008513&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" style="width: 590px; height: 400px;"></iframe>
                         <style>
                            .mapouter {
                               display: table;
