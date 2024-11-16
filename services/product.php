@@ -4,7 +4,7 @@ include_once __DIR__ . "/select.php";
 include_once __DIR__ . "/../sources/product.php";
 
 function product_seeder($connection, $config, $items): void {
-   $db = mysqli_query($connection,"SELECT COUNT(*) FROM product_config");
+   $db = mysqli_query($connection,"SELECT COUNT(*) as count FROM product_config");
    if ($db) {
       $count = mysqli_fetch_assoc($db)["count"];
       if ($count <= 0) {
@@ -15,7 +15,7 @@ function product_seeder($connection, $config, $items): void {
          mysqli_query($connection,"INSERT INTO product_config VALUES (NULL, '$page_title', '$page_button_text', '$section_title', '$section_description')");
       }
    }
-   $db_item = mysqli_query($connection,"SELECT COUNT(*) FROM product_items");
+   $db_item = mysqli_query($connection,"SELECT COUNT(*) as count FROM product_items");
    if ($db_item) {
       $count = mysqli_fetch_assoc($db_item)["count"];
       if ($count <= 0) {
@@ -30,3 +30,10 @@ function product_seeder($connection, $config, $items): void {
 }
 
 product_seeder($connection, $product_config_data, $product_datas);
+
+function get_product_config($connection) {
+   return select($connection, "SELECT * FROM product_config")->fetch_assoc();
+}
+function get_product_items($connection) {
+   return select($connection, "SELECT * FROM product_items");
+}
