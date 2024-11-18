@@ -5,7 +5,7 @@ include_once __DIR__ . "/../sources/documentation.php";
 
 function documentation_seeder($connection, $config, $items): void
 {
-   $db = mysqli_query($connection, "SELECT COUNT(*) FROM documentation_config");
+   $db = mysqli_query($connection, "SELECT COUNT(*) as count FROM documentation_config");
    if ($db) {
       $count = mysqli_fetch_assoc($db)["count"];
       if ($count <= 0) {
@@ -16,7 +16,7 @@ function documentation_seeder($connection, $config, $items): void
          mysqli_query($connection, "INSERT INTO documentation_config VALUES (NULL, '$page_title', '$page_button_text', '$section_title', '$section_subtitle')");
       }
    }
-   $db_item = mysqli_query($connection, "SELECT COUNT(*) FROM documentation_items");
+   $db_item = mysqli_query($connection, "SELECT COUNT(*) as count FROM documentation_items");
    if ($db_item) {
       $count = mysqli_fetch_assoc($db_item)["count"];
       if ($count <= 0) {
@@ -31,3 +31,12 @@ function documentation_seeder($connection, $config, $items): void
 }
 
 documentation_seeder($connection, $documentation_config_data, $documentation_item_datas);
+
+
+function get_documentation_config($connection) {
+   return select($connection, "SELECT * FROM documentation_config")->fetch_assoc();
+}
+
+function get_documentation_items($connection) {
+   return select($connection, "SELECT * FROM documentation_items");
+}
