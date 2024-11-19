@@ -20,7 +20,7 @@ $items = get_documentation_items($connection);
          <img src="./background.jpg" alt="" width="100%" style="height: 100%;" class="position-absolute">
          <div class="position-relative w-25 d-flex justify-content-center align-items-center flex-column">
             <h2 class="border-bottom border-white text-center text-white fs-1 w-100 fw-semibold" style="text-shadow: 1px 1px 1px #1a1a1a;"><?= $config['page_title'] ?></h2>
-            <a class="btn btn-primary" style="width: fit-content;" href="#product-section"><?= $config['page_button_text'] ?></a>
+            <a class="btn btn-primary text-uppercase" style="width: fit-content;" href="#product-section"><?= $config['page_button_text'] ?></a>
          </div>
       </div>
       <div id="product-section" class="py-4 mb-5">
@@ -28,30 +28,20 @@ $items = get_documentation_items($connection);
             <div class="row justify-content-center my-5 py-5">
                <div class="col-12 col-lg-6">
                   <h1 class="text-center"><?= $config['section_title'] ?></h1>
-                  <p class="text-center fs-5"><?= $config['section_description'] ?></p>
+                  <p class="text-center fs-5"><?= $config['section_subtitle'] ?></p>
                </div>
             </div>
             <div class="row" id="product-list-wrapper">
-               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
-                  <h2 class="text-center text-white position-relative">TEXT</h2>
-               </div>
-               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
-                  <h2 class="text-center text-white position-relative">TEXT</h2>
-               </div>
-               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
-                  <h2 class="text-center text-white position-relative">TEXT</h2>
-               </div>
-               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
-                  <h2 class="text-center text-white position-relative">TEXT</h2>
-               </div>
-               <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">
-                  <img src="./background.jpg" alt="..." width="100%" height="100%" class="position-absolute">
-                  <h2 class="text-center text-white position-relative">TEXT</h2>
-               </div>
+               <?php
+               foreach ($items as $key => $item) {
+                  $html = '<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">';
+                  $html .= '<img src="'.$item['img_path'].'" alt="..." width="100%" height="100%" class="position-absolute">';
+                  $html .= '<h2 class="text-center text-white position-relative">'.$item['title'].'</h2>';
+                  $html .= '</div>';
+
+                  echo $html;
+               }
+               ?>
             </div>
          </div>
       </div>

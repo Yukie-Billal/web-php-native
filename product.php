@@ -37,59 +37,50 @@ $items = get_product_items($connection);
                   foreach ($items as $key => $item) {
                      $html = '<div class="item position-relative">';
                      $html .= '<div class="img-wrapper">';
-                     $html .= '<img src="./background.jpg" alt="..">';
+                     $html .= '<img src="' . $item['img_path'] . '" alt="..">';
                      $html .= '</div>';
                      $html .= '<div class="text-wrapper mt-3">';
-                     $html .= '<h6>Judul</h6>';
-                     $html .= '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis aspernatur eum dolores molestiae sed vero distinctio dicta optio illum magni?</p>';
+                     $html .= '<h6>' . $item['title'] . '</h6>';
+                     $html .= '<p>' . $item['description'] . '</p>';
                      $html .= '</div>';
                      $html .= '</div>';
 
                      echo $html;
                   }
                   ?>
-                  <div class="item position-relative">
-                     <div class="img-wrapper">
-                        <img src="./background.jpg" alt="..">
-                     </div>
-                     <div class="text-wrapper mt-3">
-                        <h6>Judul</h6>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis aspernatur eum dolores molestiae sed vero distinctio dicta optio illum magni?</p>
-                     </div>
-                  </div>
+
+               </div>
+               <div class="col-12 d-flex justify-content-between mt-4 px-5">
+                  <button class="btn btn-primary btn-lg btn-owl-prev">Sebelumnya</button>
+                  <button class="btn btn-primary btn-lg btn-owl-next">Selanjutnya</button>
                </div>
             </div>
-            <div class="col-12 d-flex justify-content-between mt-4 px-5">
-               <button class="btn btn-primary btn-lg btn-owl-prev">Sebelumnya</button>
-               <button class="btn btn-primary btn-lg btn-owl-next">Selanjutnya</button>
-            </div>
          </div>
+         <?php
+         include "./footer.php";
+         ?>
       </div>
-      <?php
-      include "./footer.php";
-      ?>
-   </div>
-   <script>
-      const owl = $('.owl-carousel').owlCarousel({
-         loop: true,
-         margin: 10,
-         nav: true,
-         responsive: {
-            0: {
-               items: 1
-            },
-            600: {
-               items: 3
+      <script>
+         const owl = $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+               0: {
+                  items: 1
+               },
+               600: {
+                  items: 3
+               }
             }
-         }
-      })
+         })
 
-      const buttonNextOwl = $(".btn-owl-next")
-      const buttonPrevOwl = $(".btn-owl-prev")
+         const buttonNextOwl = $(".btn-owl-next")
+         const buttonPrevOwl = $(".btn-owl-prev")
 
-      buttonNextOwl.click(() => owl.trigger("next.owl.carousel"))
-      buttonPrevOwl.click(() => owl.trigger("prev.owl.carousel"))
-   </script>
+         buttonNextOwl.click(() => owl.trigger("next.owl.carousel"))
+         buttonPrevOwl.click(() => owl.trigger("prev.owl.carousel"))
+      </script>
 </body>
 
 </html>
