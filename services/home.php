@@ -35,7 +35,8 @@ function about_seeder($connection, $datas): void {
          $about_text_title = $datas['about_text_title'];
          $about_text_paragraf_1 = $datas['about_text_paragraf_1'];
          $about_text_paragraf_2 = $datas['about_text_paragraf_2'];
-         mysqli_query($connection, "INSERT INTO home_about VALUES (NULL, '$about_title', '$about_text_title', '$about_text_paragraf_1', '$about_text_paragraf_2')");
+         $about_image_path = $datas['about_image_path'];
+         mysqli_query($connection, "INSERT INTO home_about VALUES (NULL, '$about_title', '$about_text_title', '$about_text_paragraf_1', '$about_text_paragraf_2', '$about_image_path')");
       } 
    }
 

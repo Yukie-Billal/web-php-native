@@ -14,15 +14,20 @@ $feature_datas = [
    [
       "title" => "Competitive",
       "description" => "We provide competitive price, schedule and method",
-      "icon_path" => "assets/upload/home_feature/3.svg", 
+      "icon_path" => "assets/upload/home_feature/3.svg",
    ],
 ];
 
 $about_datas = [
    "about_title" => "ABOUT US",
    "about_text_title" => "Who we are",
-   "about_text_paragraf_1" => "We are a construction company established in 2003. Our company able to manage and executed any project and to be your reliable partner in the Engineering, Procurement and Construction with committed to customer satisfaction oriented.",
-   "about_text_paragraf_2" => "We have many experiences to manage any construction works for civil, structure, mechanical, piping, tank work and some electrical work at any industry such as :",
+   "about_text_paragraf_1" => "PT. GEMILANG KARYA AGRI adalah anak perusahaan dari PT. Gemilang Karya Mandiri. Kami perusahaan yang bergerak dalam industri peternakan ayam potong. Peternakan kami memulai usaha awal 2016 yang diproduksi dari kandang sendiri dengan sistem kandang modern close house. Pada Awal usaha kami memiliki satu buah kandang dengan 3 lantai yang berkapasitas 25.000 / lantai. Kapasitas produksi bisa mencapai 75.000 ekor dalam 1 kandang.",
+   "about_text_paragraf_2" => "Pada Tahun 2017, Kami melakukan ekspansi dengan melakukan penambahan kandang untuk memperbesar kapasitas produksi. Saat ini kapasitas produksi ayam kami mencapai 350,000 ekor.
+   Pada Tahun 2018 , kami melakukan penambahan unit trading ayam hidup dan pemotongan ayam fresh di salah satu unit kami di Tanggerang. Dengan brand Rumah ayam Halal
+   Pada tahun 2019 ,kami melakukan penambahan kembali di unit trading karkas ayam frozen, daging sapi dan kerbau.
+   Pada tahun 2020 dan 2021, kami melakukan perluasan pasar kembali untuk unit usaha trading kami yaitu trading bebek, ayam kampung serta DOC.
+   Pada tahun 2022, kami akan melaunchingkan brand untuk seluruh produk kami, dan akan membuka restoran di wilayah Kota Cilegon, serta kamipun memperluas bisnis dengan mensupply bahan pokok makanan di wilayah Jabodetabek.
+   Kami terus meningkatkan upaya untuk memberikan produksi dalam jumlah yang banyak, dengan waktu yang cepat dan memberikan kepuasan kepada pelanggan terutama dalam hal kualitas.",
    "about_image_path" => "assets/upload/about/img.jpg",
    "about_body_list" => [
       "Power Plant",

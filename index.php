@@ -85,7 +85,7 @@ $service_items = get_service_items($connection);
 
             </div>
             <div id="img-panel" class="col-6 px-5 py-2 rounded-circle">
-               <img src="/<?= $about['about_image_path'] ?>" alt="" class="w-100 h-100 rounded-circle" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
+               <img src="/<?= $about['about_image_path'] ?>" alt="" class="w-100 h-100 rounded-circle object-fit-cover" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
             </div>
          </div>
       </div>

@@ -12,7 +12,9 @@ session_start();
 function check_auth()
 {
    if (!isset($_SESSION["auth"])) {
-      header("location:" . __DIR__ . "/../../login.php");
+      return false;
+   } else {
+      return true;
    }
 }
 
@@ -33,6 +35,8 @@ function signin($mysqli, $data)
          // Login berhasil
          echo "Login successful! Welcome, " . htmlspecialchars($username) . ".";
          // Simpan session atau logika lainnya di sini
+         $_SESSION['auth'] = true;
+         $_SESSION['id'] = $user['id'];
          return true;
       } else {
          // Password salah
