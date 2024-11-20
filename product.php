@@ -23,14 +23,14 @@ $items = get_product_items($connection);
             <a class="btn btn-primary text-uppercase" style="width: fit-content;" href="#product-section"><?= $config['page_button_text'] ?></a>
          </div>
       </div>
-      <div id="product-section" class="container-fluid py-5">
-         <div class="row">
+      <div id="product-section" class="container-fluid px-0">
+         <div class="row mt-5">
             <div class="col-12 py-5">
                <h6 class="text-center fs-2 fw-semibold"><?= $config['section_title'] ?></h6>
                <h6 class="text-center fs-5 fw-medium"><?= $config['section_description'] ?></h6>
             </div>
          </div>
-         <div class="row">
+         <div class="row px-2">
             <div class="col-12">
                <div class="owl-carousel owl-theme">
                   <?php
@@ -64,7 +64,7 @@ $items = get_product_items($connection);
          const owl = $('.owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
-            nav: true,
+            nav: false,
             responsive: {
                0: {
                   items: 1
