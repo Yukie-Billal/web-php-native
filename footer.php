@@ -1,4 +1,4 @@
-<div id="footer" style="background-color: #3838c5;" class="text-white mt-3">
+<div id="footer" class="text-white mt-3">
    <div class="container px-5">
       <div class="row py-4 justify-content-center">
          <div class="col-5 d-flex justify-content-center flex-column align-items-start">
