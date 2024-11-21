@@ -7,6 +7,7 @@ if (!check_auth()) {
 }
 
 include __DIR__ . "/layouts/head.php";
+
 ?>
 
       <main class="app-main"> <!--begin::App Content Header-->
