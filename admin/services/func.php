@@ -61,6 +61,22 @@ function get_contact_config($mysqli) {
    return select_one($mysqli, "SELECT * FROM contact_config");
 }
 
+function insert_home_slide($mysqli, $data) {
+   $stmt = $mysqli->prepare("INSERT INTO home_slider (img_path) VALUES (?)");
+   $stmt->bind_param("s", $data["img_path"]);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function delete_home_slide($mysqli, $id) {
+   $stmt = $mysqli->prepare("DELETE FROM home_slider WHERE id = ?");
+   $stmt->bind_param("i", $id);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
 function update_home_feature($mysqli, $feature_id, $data)
 {
    $stmt = $mysqli->prepare("UPDATE home_feature SET title = ?, description = ?, icon_path = ? WHERE id = ?");

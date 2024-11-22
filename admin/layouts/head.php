@@ -1,3 +1,24 @@
+<?php
+$request_url = $_SERVER['REQUEST_URI'];
+
+$available_page = [
+   "/admin/dashboard.php" => "dashboard",
+   "/admin/slides.php" => "slides"
+];
+
+if (array_key_exists($request_url, $available_page)) {
+   $active_page = $available_page[$request_url];
+} else {
+   $active_page = "dashboard";
+}
+
+function is_active_page($page, $active_page) {
+   $result = "";
+   if ($page == $active_page) $result = "active";
+   return $result;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en"> <!--begin::Head-->
 
@@ -110,5 +131,5 @@
          </div> <!--end::Container-->
       </nav> <!--end::Header--> <!--begin::Sidebar-->
       <?php
-      include __DIR__ ."/sidebar.php";
+      include __DIR__ . "/sidebar.php";
       ?>
