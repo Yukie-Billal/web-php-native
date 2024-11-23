@@ -31,6 +31,18 @@
                         <p>Slides</p>
                      </a>
                   </li>
+                  <li class="nav-item">
+                     <a href="/admin/home_feature.php" class="nav-link <?= is_active_page("features", $active_page) ?>">
+                        <i class="nav-icon bi bi-circle"></i>
+                        <p>Features</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/admin/home_about.php" class="nav-link <?= is_active_page("abouts", $active_page) ?>">
+                        <i class="nav-icon bi bi-circle"></i>
+                        <p>Abouts</p>
+                     </a>
+                  </li>
                </ul>
             </li>
             <!-- <li class="nav-item">

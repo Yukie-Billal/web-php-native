@@ -13,6 +13,15 @@ function select_one($mysqli , $query) {
    return $result->fetch_assoc();
 }
 
+function select_by_id($mysqli , $query, $id) {
+   $stmt = $mysqli->prepare($query . " WHERE id = ?");
+   $stmt->bind_param("i", $id);
+   $stmt->execute();
+   $result = $stmt->get_result();
+   $stmt->close();
+   return $result->fetch_assoc();
+}
+
 function get_app_config($mysqli) {
    return select_one($mysqli , "SELECT * FROM app_config");
 }
@@ -22,7 +31,11 @@ function get_home_slides($mysqli) {
 }
 
 function get_home_feature($mysqli) {
-   return select_one($mysqli, "SELECT * FROM home_feature");
+   return select_many($mysqli, "SELECT * FROM home_feature");
+}
+
+function get_home_feature_by_id($mysqli, $id) {
+   return select_by_id($mysqli, "SELECT * FROM home_feature", $id);
 }
 
 function get_home_about($mysqli) {

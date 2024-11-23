@@ -6,8 +6,8 @@ if (!check_auth()) {
    header("location:../login.php");
 }
 
-
-$slides = get_home_slides($mysqli);
+$about_config = get_home_about($mysqli);
+$about_items = get_home_about_items($mysqli);
 
 include __DIR__ . "/layouts/head.php";
 
@@ -15,8 +15,8 @@ include __DIR__ . "/layouts/head.php";
 
 <main class="app-main">
    <?php
-   $breadcrumb_title = "Slides";
-   $breadcrumb_active_page = "Slides";
+   $breadcrumb_title = "Home";
+   $breadcrumb_active_page = "Home";
    include __DIR__ . "/layouts/breadcrumb.php";
    ?>
    <div class="app-content">
@@ -25,7 +25,7 @@ include __DIR__ . "/layouts/head.php";
             <div class="col-12 col-md-8">
                <div class="card mb-4">
                   <div class="card-header">
-                     <h3 class="card-title">Data home slides</h3>
+                     <h3 class="card-title">Simple Full Width Table</h3>
                      <!-- PAGINATION -->
                      <div class="card-tools">
                         <ul class="pagination pagination-sm float-end">
@@ -136,7 +136,7 @@ include __DIR__ . "/layouts/head.php";
                   })
                }).catch(err => {
                   console.log(err)
-                  
+
                   Swal.fire({
                      title: "Gagal dihapus!",
                      text: "File gambar gagal dihapus",

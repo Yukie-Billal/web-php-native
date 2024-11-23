@@ -3,7 +3,9 @@ $request_url = $_SERVER['REQUEST_URI'];
 
 $available_page = [
    "/admin/dashboard.php" => "dashboard",
-   "/admin/slides.php" => "slides"
+   "/admin/slides.php" => "slides",
+   "/admin/home_feature.php" => "features",
+   "/admin/home_about.php" => "abouts",
 ];
 
 if (array_key_exists($request_url, $available_page)) {

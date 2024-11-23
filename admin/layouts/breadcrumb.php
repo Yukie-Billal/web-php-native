@@ -1,5 +1,9 @@
 <?php
 
+if (!isset($breadcrumb_pre_title)) {
+   $breadcrumb_pre_title = "Home";
+}
+
 if (!isset($breadcrumb_title)) {
    $breadcrumb_title = "Dashboard";
 }
@@ -18,7 +22,7 @@ if (!isset($breadcrumb_active_page)) {
          </div>
          <div class="col-sm-6">
             <ol class="breadcrumb float-sm-end">
-               <li class="breadcrumb-item"><a href="/admin/dashboard.php">Home</a></li>
+               <li class="breadcrumb-item"><a href="/admin/dashboard.php"><?= $breadcrumb_pre_title ?></a></li>
                <li class="breadcrumb-item active" aria-current="page">
                   <?= $breadcrumb_active_page ?>
                </li>

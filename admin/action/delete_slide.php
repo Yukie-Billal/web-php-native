@@ -1,19 +1,9 @@
 <?php
 
 include __DIR__ . "/../services/func.php";
+include __DIR__ . "/../services/http.php";
 
 header("Content-Type: application/json");
-
-function create_response(mixed $data, string $message = "", int $status = 200, $error = null)
-{
-   $response = [
-      "data" => $data,
-      "message" => $message,
-      "error" => $error
-   ];
-   http_response_code($status);
-   echo json_encode($response);
-}
 
 if ($_SERVER['REQUEST_METHOD'] !== "POST") {
    http_response_code(405);
