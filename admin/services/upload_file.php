@@ -12,3 +12,12 @@ function upload_image($file, $upload_path="assets/upload/", $file_name=null): st
    }
    return "";
 }
+
+
+function delete_file($name) {
+   $path = __DIR__ . "/../../" . $name;
+   if (file_exists( $path )) {
+      return unlink($path);
+   }
+   return false;
+}

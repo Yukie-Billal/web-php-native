@@ -56,13 +56,13 @@ include __DIR__ . "/layouts/head.php";
                      <div class="row">
                         <?php foreach ($service_items as $key => $d): ?>
                            <div class="col-12 col-md-4">
-                              <div class="card border-0">
+                              <div class="card border-0 shadow-none">
                                  <img src="/<?= $d['icon_path'] ?>" alt="">
                                  <h5 class="mt-2"><?= $d['title'] ?></h5>
                                  <p><?= $d['description'] ?></p>
-                                 <div class="card-footer m-0 px-0">
-                                    <button class="btn btn-success btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                 <div class="card-footer m-0 px-0 shadow-none">
+                                    <button class="btn btn-success btn-sm button-edit" data-id="<?= $d['id'] ?>">Edit</button>
+                                    <button class="btn btn-danger btn-sm button-delete" data-id="<?= $d['id'] ?>">Hapus</button>
                                  </div>
                               </div>
                            </div>
@@ -158,6 +158,54 @@ include __DIR__ . "/layouts/head.php";
             timer: 1500
          })
       })
+   })
+
+   document.addEventListener("click", (e) => {
+      const clickedEl = e.target
+      if (clickedEl.className.includes("button-edit")) {
+         console.log("EDIT")
+      }
+      if (clickedEl.className.includes("button-delete")) {
+         const id = clickedEl.getAttribute("data-id")
+         Swal.fire({
+            title: "Yakin untuk hapus?",
+            text: "Tidak dapat dikembalikan",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, hapus!"
+         }).then((result) => {
+            if (result.isConfirmed) {
+               const form = new FormData()
+               form.append("id", id)
+               fetch("action/delete_service_item.php", {
+                  method: 'POST',
+                  body: form
+               }).then(async res => {
+                  if (res.status >= 400) throw res
+                  const data = await res.json()
+
+                  const elParent = e.target.parentNode
+                  elParent.remove()
+
+                  Swal.fire({
+                     title: "Berhasil dihapus!",
+                     text: "File gambar telah dihapus",
+                     icon: "success"
+                  })
+               }).catch(err => {
+                  console.log(err)
+
+                  Swal.fire({
+                     title: "Gagal dihapus!",
+                     text: "File gambar gagal dihapus",
+                     icon: "error"
+                  })
+               })
+            }
+         })
+      }
    })
 </script>
 <?php

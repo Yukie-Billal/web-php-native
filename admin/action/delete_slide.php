@@ -3,12 +3,8 @@
 include __DIR__ . "/../services/func.php";
 include __DIR__ . "/../services/http.php";
 
-header("Content-Type: application/json");
-
-if ($_SERVER['REQUEST_METHOD'] !== "POST") {
-   http_response_code(405);
-   return;
-}
+setup_header();
+validate_method("POST");
 
 if (!isset($_POST["id"]) || !$_POST['id']) {
    create_response(null,  "Id wajib diisi", 400, null);

@@ -28,5 +28,6 @@ function validate_method(string $allowed): bool {
    if (strtolower($allowed) === strtolower($_SERVER["REQUEST_METHOD"])) {
       return true;
    }
-   return false;
+   http_response_code(405);
+   die;
 }

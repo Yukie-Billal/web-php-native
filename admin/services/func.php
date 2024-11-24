@@ -58,6 +58,10 @@ function get_home_service_items($mysqli) {
    return select_many($mysqli, "SELECT * FROM home_service_items");
 }
 
+function get_home_service_item_by_id($mysqli, $id) {
+   return select_by_id($mysqli, "SELECT * FROM home_service_items", $id);
+}
+
 function get_product_config($mysqli) {
    return select_one($mysqli, "SELECT * FROM product_config");
 }
@@ -148,5 +152,13 @@ function update_home_service_item($mysqli, $service_id, $data) {
    $result = $stmt->execute();
    $stmt->close();
 
+   return $result;
+}
+
+function delete_home_service_item($mysqli, $id) {
+   $stmt = $mysqli->prepare('DELETE FROM home_service_items WHERE id = ?');
+   $stmt->bind_param('i', $id);
+   $result = $stmt->execute();
+   $stmt->close();
    return $result;
 }
