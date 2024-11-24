@@ -234,3 +234,11 @@ function update_doc_config($mysqli, $data) {
    $stmt->close();
    return $result;
 }
+
+function update_contact_config($mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE contact_config SET page_title = ?, page_button_text = ?, section_title = ?, section_input_title = ?, map_latitude = ?, map_longitude = ?, map_place_name = ?, map_place_address = ? WHERE id = ?');
+   $stmt->bind_param("ssssssssi", $data['page_title'], $data['page_button_text'], $data['section_title'], $data['section_input_title'], $data['map_latitude'], $data['map_longitude'], $data['map_place_name'], $data['map_place_address'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}

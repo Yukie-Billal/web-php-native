@@ -63,6 +63,12 @@
                   <p>Dokumentasi</p>
                </a>
             </li>
+            <li class="nav-item <?= $active_page == "contacts" ? "menu-open" : "" ?>">
+               <a href=" /admin/contact.php" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-fill"></i>
+                  <p>Kontak</p>
+               </a>
+            </li>
          </ul> <!--end::Sidebar Menu-->
       </nav>
    </div> <!--end::Sidebar Wrapper-->
