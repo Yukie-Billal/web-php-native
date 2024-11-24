@@ -42,6 +42,10 @@ function get_home_about($mysqli) {
    return select_one($mysqli, "SELECT * FROM home_about");
 }
 
+function get_home_about_by_id($mysqli, $id) {
+   return select_by_id($mysqli, "SELECT * FROM home_about", $id);
+}
+
 function get_home_about_items($mysqli) {
    return select_many($mysqli, "SELECT * FROM home_about_items");
 }
@@ -106,8 +110,8 @@ function update_home_feature($mysqli, $feature_id, $data)
 
 function update_home_about($mysqli, $about_id, $data)
 {
-   $stmt = $mysqli->prepare('UPDATE home_about SET about_title = ?, about_text_title = ?, about_text_paragraf_1 = ?, about_text_paragraf_1 = ?, about_image_path = ? WHERE id = ?');
-   $stmt->bind_param('sssssi', $data['about_title'], $data['about_text_title'], $data['about_text_paragrah_1'], $data['about_text_paragrah_2'], $data['about_image_path'], $about_id);
+   $stmt = $mysqli->prepare('UPDATE home_about SET about_title = ?, about_text_title = ?, about_text_paragraf_1 = ?, about_text_paragraf_2 = ?, about_image_path = ? WHERE id = ?');
+   $stmt->bind_param('sssssi', $data['about_title'], $data['about_text_title'], $data['about_text_paragraf_1'], $data['about_text_paragraf_2'], $data['about_image_path'], $about_id);
 
    $result = $stmt->execute();
    $stmt->close();

@@ -22,10 +22,10 @@ include __DIR__ . "/layouts/head.php";
    <div class="app-content">
       <div class="container-fluid">
          <div class="row" id="slide">
-            <div class="col-12 col-md-8">
+            <div class="col-12">
                <div class="card mb-4">
                   <div class="card-header">
-                     <h3 class="card-title">Simple Full Width Table</h3>
+                     <h3 class="card-title">Data bagian home - about</h3>
                      <!-- PAGINATION -->
                      <div class="card-tools">
                         <ul class="pagination pagination-sm float-end">
@@ -38,43 +38,36 @@ include __DIR__ . "/layouts/head.php";
                      </div>
                   </div>
                   <div class="card-body">
-                     <div class="row row-gap-3">
-                        <?php
-                        $index = 0;
-                        foreach ($slides as $slide):
-                           $index++;
-                        ?>
-                           <div class="col-12 col-md-4 pointer">
-                              <img src="/<?= $slide['img_path'] ?>" alt="" width="100%" height="200px" class="object-fit-contain">
-                              <button type="button" class="btn btn-danger btn-sm mt-1 button-delete-slide" data-id="<?= $slide['id'] ?>">Delete</button>
-                           </div>
-                        <?php endforeach; ?>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-4">
-               <div class="card mb-4">
-                  <div class="card-header">
-                     <h3 class="card-title">Input slide</h3>
-                  </div>
-                  <form method="post" action="action/create_slide.php" enctype="multipart/form-data">
-                     <div class="card-body">
-                        <div class="mb-2">
-                           <label for="slide" class="form-label">Gambar slide</label>
-                           <input type="file" name="file" class="form-control" id="slide" aria-describedby="slide" accept="image/*">
-                           <div id="slide" class="form-text">
-                              Image slide 16:8 rasio or landscape
-                           </div>
+                     <form class="row gap-3" id="form-update" action="action/update_about_config.php" method="post" enctype="multipart/form-data">
+                        <input type="text" name="id" id="id" value="<?= $about_config['id'] ?>" hidden>
+                        <div class="form-group">
+                           <label for="about_title">Judul </label>
+                           <input type="text" name="about_title" id="about_title" placeholder="Judul ..." class="form-control" value="<?= $about_config['about_title'] ?>">
+                        </div>
+                        <div class="form-group">
+                           <label for="about_text_title">Subjudul </label>
+                           <input type="text" name="about_text_title" id="about_text_title" placeholder="Judul ..." class="form-control" value="<?= $about_config['about_text_title'] ?>">
+                        </div>
+                        <div class="form-group">
+                           <label for="about_text_paragraf_1">Paragraf 1 </label>
+                           <textarea name="about_text_paragraf_1" id="about_text_paragraf_1" placeholder="Paragraf 1 ..." class="form-control" rows="5"><?= $about_config['about_text_paragraf_1'] ?></textarea>
+                        </div>
+                        <div class="form-group">
+                           <label for="about_text_paragraf_2">Paragraf 2</label>
+                           <textarea name="about_text_paragraf_2" id="about_text_paragraf_2" placeholder="Paragraf 2 ..." class="form-control" rows="5"><?= $about_config['about_text_paragraf_2'] ?></textarea>
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                           <label for="about_image_path">File</label>
+                           <input type="file" name="about_image_path" id="about_image_path" class="form-control" accept="image/*">
                            <div id="preview-image">
-                              <img src="" alt="" width="100%">
+                              <img src="/<?= $about_config['about_image_path'] ?>" alt="" width="100%">
                            </div>
                         </div>
                         <div>
-                           <button type="submit" class="btn btn-primary">Submit</button>
+                           <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
-                     </div>
-                  </form>
+                     </form>
+                  </div>
                </div>
             </div>
          </div>
@@ -101,54 +94,44 @@ include __DIR__ . "/layouts/head.php";
       }
    })
 
-   const buttonDelete = document.querySelectorAll(".button-delete-slide")
-
-   buttonDelete.forEach(item => {
-      item.addEventListener("click", e => {
-         e.preventDefault()
-         const id = e.target.getAttribute("data-id")
+   const formElement = document.querySelector("#form-update")
+   formElement.addEventListener("submit", (e) => {
+      e.preventDefault()
+      // get value from input
+      const idEl = ["id", "about_title", "about_text_title", "about_text_paragraf_1", "about_text_paragraf_2", "about_image_path"]
+      const form = new FormData()
+      form.append("id", "hue")
+      idEl.forEach(id => {
+         if (!id.includes("image")) {
+            form.append(id, document.querySelector(`#${id}`)?.value)
+         } else {
+            form.append(id, document.querySelector(`#${id}`)?.files[0])
+         }
+      });
+      fetch("action/update_about_config.php", {
+         method: "POST",
+         body: form
+      }).then(async res => {
+         if (res.status >= 400) throw res
+         const result = await res.json()
+         console.log(result)
          Swal.fire({
-            title: "Yakin untuk hapus?",
-            text: "Tidak dapat dikembalikan",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Ya, hapus!"
-         }).then((result) => {
-            if (result.isConfirmed) {
-               const form = new FormData()
-               form.append("id", id)
-               fetch("action/delete_slide.php", {
-                  method: 'POST',
-                  body: form
-               }).then(async res => {
-                  if (res.status >= 400) throw res
-                  const data = await res.json()
-
-                  const elParent = e.target.parentNode
-                  elParent.remove()
-
-                  Swal.fire({
-                     title: "Berhasil dihapus!",
-                     text: "File gambar telah dihapus",
-                     icon: "success"
-                  })
-               }).catch(err => {
-                  console.log(err)
-
-                  Swal.fire({
-                     title: "Gagal dihapus!",
-                     text: "File gambar gagal dihapus",
-                     icon: "error"
-                  })
-               })
-            }
+            icon: 'succes',
+            title: "Berhasil menyimpan perubahan",
+            showConfirmButton: false,
+            timer: 1500
+         })
+      }).catch(err => {
+         console.error(err)
+         Swal.fire({
+            icon: 'succes',
+            title: err.message || "Berhasil menyimpan perubahan",
+            showConfirmButton: false,
+            timer: 1500
          })
       })
    })
 </script>
-
 <?php
 
 include __DIR__ . "/layouts/footer.php";
