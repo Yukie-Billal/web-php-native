@@ -7,6 +7,7 @@ $available_page = [
    "/admin/home_feature.php" => "features",
    "/admin/home_about.php" => "abouts",
    "/admin/home_services.php" => "services",
+   "/admin/product.php" => "product",
 ];
 
 if (array_key_exists($request_url, $available_page)) {

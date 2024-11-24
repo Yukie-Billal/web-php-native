@@ -11,7 +11,7 @@ session_start();
 
 function check_auth()
 {
-   if (!isset($_SESSION["auth"])) {
+   if (!isset($_SESSION["auth"]) && !$_SESSION["auth"]) {
       return false;
    } else {
       return true;
