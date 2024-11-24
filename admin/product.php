@@ -6,8 +6,8 @@ if (!check_auth()) {
    header("location:../login.php");
 }
 
-$service_config = get_home_service_config($mysqli);
-$service_items = get_home_service_items($mysqli);
+$product_config = get_product_config($mysqli);
+$product_items = get_product_items($mysqli);
 
 include __DIR__ . "/layouts/head.php";
 
@@ -15,8 +15,9 @@ include __DIR__ . "/layouts/head.php";
 
 <main class="app-main">
    <?php
-   $breadcrumb_title = "Service";
-   $breadcrumb_active_page = "Service";
+   $breadcrumb_title = "Product";
+   $breadcrumb_active_page = "Product";
+   $breadcrumb_pre_title = "Product";
    include __DIR__ . "/layouts/breadcrumb.php";
    ?>
    <div class="app-content">
@@ -25,18 +26,26 @@ include __DIR__ . "/layouts/head.php";
             <div class="col-12">
                <div class="card mb-4">
                   <div class="card-header">
-                     <h3 class="card-title">Data bagian home - service</h3>
+                     <h3 class="card-title">Konfigurasi halaman produk</h3>
                   </div>
                   <div class="card-body">
                      <form class="row gap-3" id="form-update-config">
-                        <input type="text" name="id" id="id" value="<?= $service_config['id'] ?>" hidden>
+                        <input type="text" name="id" id="id" value="<?= $product_config['id'] ?>" hidden>
                         <div class="form-group">
-                           <label for="title">Judul </label>
-                           <input type="text" name="title" id="title" placeholder="Judul ..." class="form-control" value="<?= $service_config['title'] ?>">
+                           <label for="page_title">Judul halaman</label>
+                           <input type="text" name="page_title" id="page_title" placeholder="Judul halaman ..." class="form-control" value="<?= $product_config['page_title'] ?>">
                         </div>
                         <div class="form-group">
-                           <label for="subtitle">Subjudul </label>
-                           <input type="text" name="subtitle" id="subtitle" placeholder="Subjudul ..." class="form-control" value="<?= $service_config['subtitle'] ?>">
+                           <label for="page_button_text">Teks tombol halaman </label>
+                           <input type="text" name="page_button_text" id="page_button_text" placeholder="Teks tombol ..." class="form-control" value="<?= $product_config['page_button_text'] ?>">
+                        </div>
+                        <div class="form-group">
+                           <label for="section_title">Judul bagian konten</label>
+                           <input type="text" name="section_title" id="section_title" placeholder="Judul bagian konten ..." class="form-control" value="<?= $product_config['section_title'] ?>">
+                        </div>
+                        <div class="form-group">
+                           <label for="section_description">Subjudul bagian konten</label>
+                           <textarea name="section_description" id="section_description" class="form-control" rows="3"><?= $product_config['section_description'] ?></textarea>
                         </div>
                         <div>
                            <button type="submit" class="btn btn-primary">Simpan</button>
@@ -50,17 +59,17 @@ include __DIR__ . "/layouts/head.php";
             <div class="col-12 col-md-8">
                <div class="card mb-4">
                   <div class="card-header">
-                     <h3 class="card-title">Data bagian home - service item</h3>
+                     <h3 class="card-title">Produk</h3>
                   </div>
                   <div class="card-body">
                      <div class="row">
-                        <?php foreach ($service_items as $key => $d): ?>
+                        <?php foreach ($product_items as $key => $d): ?>
                            <div class="col-12 col-md-4">
-                              <div class="card border-0 shadow-none">
-                                 <img src="/<?= $d['icon_path'] ?>" alt="">
+                              <div class="card border-0 shadow-none bg-transparent">
+                                 <img src="/<?= $d['img_path'] ?>" alt="" width="100%" height="200px" class="object-fit-contain">
                                  <h5 class="mt-2"><?= $d['title'] ?></h5>
                                  <p><?= $d['description'] ?></p>
-                                 <div class="card-footer m-0 px-0 shadow-none">
+                                 <div class="card-footer m-0 px-0 shadow-none bg-transparent">
                                     <button class="btn btn-success btn-sm button-edit" data-id="<?= $d['id'] ?>">Edit</button>
                                     <button class="btn btn-danger btn-sm button-delete" data-id="<?= $d['id'] ?>">Hapus</button>
                                  </div>
@@ -130,7 +139,7 @@ include __DIR__ . "/layouts/head.php";
    formElement.addEventListener("submit", (e) => {
       e.preventDefault()
       const form = get_form_body("form-update-config")
-      fetch("action/update_service.php", {
+      fetch("action/update_prduct_config.php", {
          method: "POST",
          body: form
       }).then(async res => {
@@ -158,7 +167,7 @@ include __DIR__ . "/layouts/head.php";
    formItem.addEventListener("submit", e => {
       e.preventDefault()
       const form = get_form_body("form-update-item")
-      const url = e.target.getAttribute("state") == "add" ? "action/create_service_item.php" : "action/update_service_item.php"
+      const url = e.target.getAttribute("state") == "add" ? "action/create_product_item.php" : "action/update_product_item.php"
       fetch(url, {
          method: "POST",
          body: form
@@ -189,13 +198,13 @@ include __DIR__ . "/layouts/head.php";
          const id = clickedEl.getAttribute("data-id")
          const formUpdateItem = document.querySelector("#form-update-item")
          formUpdateItem.setAttribute("state", "edit")
-         fetch("action/get_service_by_id.php?id=" + id).then(async res => {
+         fetch("action/get_product_by_id.php?id=" + id).then(async res => {
             if (res.status >= 400) throw res
             const result = await res.json()
             formUpdateItem.querySelector("#id").value = result.data.id
             formUpdateItem.querySelector("#title").value = result.data.title
             formUpdateItem.querySelector("#description").value = result.data.description
-            formUpdateItem.querySelector("#preview-image img").src = result.data.icon_path ? "/" + result.data.icon_path : ""
+            formUpdateItem.querySelector("#preview-image img").src = result.data.img_path ? "/" + result.data.img_path : ""
          }).catch(err => console.error(err))
       }
       if (clickedEl.className.includes("button-delete")) {
@@ -212,7 +221,7 @@ include __DIR__ . "/layouts/head.php";
             if (result.isConfirmed) {
                const form = new FormData()
                form.append("id", id)
-               fetch("action/delete_service_item.php", {
+               fetch("action/delete_product_item.php", {
                   method: 'POST',
                   body: form
                }).then(async res => {
@@ -233,7 +242,7 @@ include __DIR__ . "/layouts/head.php";
                      icon: "error",
                      showConfirmButton: false,
                      timer: 1500
-                  }).then(() => window.location.reload())
+                  })
                })
             }
          })

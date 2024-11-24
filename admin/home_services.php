@@ -57,10 +57,10 @@ include __DIR__ . "/layouts/head.php";
                         <?php foreach ($service_items as $key => $d): ?>
                            <div class="col-12 col-md-4">
                               <div class="card border-0 shadow-none">
-                                 <img src="/<?= $d['icon_path'] ?>" alt="">
+                                 <img src="/<?= $d['icon_path'] ?>" alt="" width="100%" height="200px" class="object-fit-contain">
                                  <h5 class="mt-2"><?= $d['title'] ?></h5>
                                  <p><?= $d['description'] ?></p>
-                                 <div class="card-footer m-0 px-0 shadow-none">
+                                 <div class="card-footer m-0 px-0 shadow-none bg-transparent">
                                     <button class="btn btn-success btn-sm button-edit" data-id="<?= $d['id'] ?>">Edit</button>
                                     <button class="btn btn-danger btn-sm button-delete" data-id="<?= $d['id'] ?>">Hapus</button>
                                  </div>

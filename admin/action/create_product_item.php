@@ -31,11 +31,11 @@ if (!$file_path) {;
    return;
 }
 
-$data['icon_path'] = $file_path;
-$result_query = create_home_service_item($mysqli, $data);
+$data['img_path'] = $file_path;
+$result_query = create_product_item($mysqli, $data);
 
 if (!$result_query) {
-   create_response(null, 'Gagal mwnyimpan data', 500, 'database error');
+   create_response(null, 'Gagal menyimpan data', 500, 'database error');
    return;
 }
 

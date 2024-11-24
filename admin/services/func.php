@@ -70,6 +70,10 @@ function get_product_items($mysqli) {
    return select_many($mysqli, "SELECT * FROM product_items");
 }
 
+function get_product_item_by_id($mysqli, $id) {
+   return select_by_id($mysqli, "SELECT * FROM product_items",  $id);
+}
+
 function get_documentation_config($mysqli) {
    return select_one($mysqli, "SELECT * FROM documentation_config");
 }
@@ -157,6 +161,30 @@ function update_home_service_item($mysqli, $service_id, $data) {
 
 function delete_home_service_item($mysqli, $id) {
    $stmt = $mysqli->prepare('DELETE FROM home_service_items WHERE id = ?');
+   $stmt->bind_param('i', $id);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function create_product_item($mysqli, $data) {
+   $stmt = $mysqli->prepare('INSERT INTO product_items (title, description, img_path) VALUES (?, ?, ?)');
+   $stmt->bind_param('sss', $data['title'], $data['description'], $data['img_path']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function update_product_item($mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE product_items SET title = ?, description = ?, img_path = ? WHERE id = ?');
+   $stmt->bind_param('sssi', $data['title'], $data['description'], $data['img_path'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function delete_product_item($mysqli, $id) {
+   $stmt = $mysqli->prepare('DELETE FROM product_items WHERE id = ?');
    $stmt->bind_param('i', $id);
    $result = $stmt->execute();
    $stmt->close();
