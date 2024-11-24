@@ -78,8 +78,9 @@
    color: #1a1a1a;
 }
 
-#footer {
+#feature-wrapper {
    background-color: #3838c5 !important;
+   color: wheat;
 }
 
 #visi-misi-section #visi {
@@ -90,4 +91,12 @@
 #visi-misi-section #misi {
    background-color: rgb(255, 255, 30) !important;
    color: black;
+}
+
+#product-list-wrapper h3 {
+   text-shadow: 1px 1px 1px #1a1a1a;
+}
+
+#footer {
+   background-color: #3838c5 !important;
 }

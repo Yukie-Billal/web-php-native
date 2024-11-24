@@ -32,16 +32,12 @@ $items = get_documentation_items($connection);
                </div>
             </div>
             <div class="row" id="product-list-wrapper">
-               <?php
-               foreach ($items as $key => $item) {
-                  $html = '<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-center" style="height: 300px;">';
-                  $html .= '<img src="'.$item['img_path'].'" alt="..." width="100%" height="100%" class="position-absolute">';
-                  $html .= '<h2 class="text-center text-white position-relative">'.$item['title'].'</h2>';
-                  $html .= '</div>';
-
-                  echo $html;
-               }
-               ?>
+               <?php foreach ($items as $key => $item): ?>
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-0 overflow-hidden position-relative d-flex justify-content-center align-items-end" style="height: 300px;">
+                     <img src="/<?= $item['img_path'] ?>" alt="..." width="100%" height="100%" class="position-absolute">
+                     <h3 class="text-center text-white position-relative w-100 p-2"><?= $item['title'] ?></h3>
+                  </div>
+               <?php endforeach; ?>
             </div>
          </div>
       </div>

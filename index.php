@@ -25,15 +25,11 @@ $service_items = get_service_items($connection);
       <div class="carousel-wrapper" style="height: 600px; overflow: hidden;">
          <div id="carouselExample" class="carousel slide h-100" data-bs-ride="carousel">
             <div class="carousel-inner">
-               <?php
-               foreach ($slides as $key => $slide) {
-                  $html = '<div class="carousel-item active">';
-                  $html .= '<img src="' . $slide['img_path'] . '" class="d-block w-100" alt="...">';
-                  $html .= '</div>';
-
-                  echo $html;
-               }
-               ?>
+               <?php foreach ($slides as $key => $slide): ?>
+                  <div class="carousel-item active">
+                     <img src="/<?= $slide['img_path'] ?>" class="d-block w-100" alt="...">
+                  </div>
+               <?php endforeach; ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,18 +41,14 @@ $service_items = get_service_items($connection);
             </button>
          </div>
       </div>
-      <div style="height: 300px;" class="d-flex justify-content-center align-items-center gap-5 px-5">
-         <?php
-         foreach ($features as $key => $feature) {
-            $html = "<div class='item d-flex justify-content-center align-items-center flex-column' data-aos='fade-up' data-aos-delay='0' data-aos-duration='1000'>";
-            $html .= "<img src='/" . $feature['icon_path'] . "' alt='ICON'>";
-            $html .= "<h6>" . $feature['title'] . "</h6>";
-            $html .= "<p>" . $feature['description'] . "</p>";
-            $html .= "</div>";
-
-            echo $html;
-         }
-         ?>
+      <div id="feature-wrapper" style="height: 300px;" class="d-flex justify-content-center align-items-center gap-5 px-5">
+         <?php foreach ($features as $key => $feature): ?>
+            <div class='item d-flex justify-content-center align-items-center flex-column' data-aos='fade-up' data-aos-delay='0' data-aos-duration='1000'>
+               <img src="/<?= $feature['icon_path'] ?>" alt='ICON'>
+               <h6><?= $feature['title'] ?></h6>
+               <p><?= $feature['description'] ?></p>
+            </div>
+         <?php endforeach; ?>
       </div>
    </div>
    <div id="about-section" class="py-4">
