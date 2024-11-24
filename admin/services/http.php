@@ -23,3 +23,10 @@ function create_response_param(array $data): string
 function setup_header() {
    header("Content-Type: application/json");
 }
+
+function validate_method(string $allowed): bool {
+   if (strtolower($allowed) === strtolower($_SERVER["REQUEST_METHOD"])) {
+      return true;
+   }
+   return false;
+}

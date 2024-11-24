@@ -6,6 +6,7 @@ $available_page = [
    "/admin/slides.php" => "slides",
    "/admin/home_feature.php" => "features",
    "/admin/home_about.php" => "abouts",
+   "/admin/home_services.php" => "services",
 ];
 
 if (array_key_exists($request_url, $available_page)) {
@@ -38,6 +39,17 @@ function is_active_page($page, $active_page) {
    <link rel="stylesheet" href="/admin/css/adminlte.css"><!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous"><!-- jsvectormap -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous">
+
+   <script>
+      function get_form_body(formId) {
+         const form = new FormData()
+         const allInp = document.querySelectorAll(`#${formId} [name]`)
+         allInp.forEach(item => {
+            form.append(item.getAttribute("name"), item?.value || "")
+         });
+         return form
+      }
+   </script>
 </head> <!--end::Head--> <!--begin::Body-->
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary"> <!--begin::App Wrapper-->

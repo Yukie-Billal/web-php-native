@@ -15,8 +15,8 @@ include __DIR__ . "/layouts/head.php";
 
 <main class="app-main">
    <?php
-   $breadcrumb_title = "Home";
-   $breadcrumb_active_page = "Home";
+   $breadcrumb_title = "About";
+   $breadcrumb_active_page = "About";
    include __DIR__ . "/layouts/breadcrumb.php";
    ?>
    <div class="app-content">
@@ -97,17 +97,7 @@ include __DIR__ . "/layouts/head.php";
    const formElement = document.querySelector("#form-update")
    formElement.addEventListener("submit", (e) => {
       e.preventDefault()
-      // get value from input
-      const idEl = ["id", "about_title", "about_text_title", "about_text_paragraf_1", "about_text_paragraf_2", "about_image_path"]
-      const form = new FormData()
-      form.append("id", "hue")
-      idEl.forEach(id => {
-         if (!id.includes("image")) {
-            form.append(id, document.querySelector(`#${id}`)?.value)
-         } else {
-            form.append(id, document.querySelector(`#${id}`)?.files[0])
-         }
-      });
+      const form = get_form_body("form-update")
       fetch("action/update_about_config.php", {
          method: "POST",
          body: form
@@ -116,7 +106,7 @@ include __DIR__ . "/layouts/head.php";
          const result = await res.json()
          console.log(result)
          Swal.fire({
-            icon: 'succes',
+            icon: 'success',
             title: "Berhasil menyimpan perubahan",
             showConfirmButton: false,
             timer: 1500

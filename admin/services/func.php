@@ -134,14 +134,19 @@ function update_home_service_config(mysqli $mysqli, $service_id, $data) {
    }
 }
 
+function create_home_service_item($mysqli, $data) {
+   $stmt = $mysqli->prepare('INSERT INTO home_service_items (title, description, icon_path) VALUES (?, ?, ?)');
+   $stmt->bind_param('sss', $data['title'], $data['description'], $data['icon_path']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
 function update_home_service_item($mysqli, $service_id, $data) {
    $stmt = $mysqli->prepare('UPDATE home_service_items SET title = ?, description = ?, icon_path = ? WHERE id = ?');
    $stmt->bind_param('sssi', $data['title'], $data['description'], $data['icon_path'], $service_id);
    $result = $stmt->execute();
+   $stmt->close();
 
-   if ($result) {
-      return true;
-   } else {
-      return false;
-   }
+   return $result;
 }
