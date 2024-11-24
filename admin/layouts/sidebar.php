@@ -57,6 +57,12 @@
                   <p>Produk</p>
                </a>
             </li>
+            <li class="nav-item <?= $active_page == "documentations" ? "menu-open" : "" ?>">
+               <a href=" /admin/documentation.php" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-fill"></i>
+                  <p>Dokumentasi</p>
+               </a>
+            </li>
          </ul> <!--end::Sidebar Menu-->
       </nav>
    </div> <!--end::Sidebar Wrapper-->

@@ -198,3 +198,35 @@ function update_product_config($mysqli, $data) {
    $stmt->close();
    return $result;
 }
+
+function create_doc_item($mysqli, $data) {
+   $stmt = $mysqli->prepare('INSERT INTO documentation_items (title, description, img_path) VALUES (?, ?, ?)');
+   $stmt->bind_param('sss', $data['title'], $data['description'], $data['img_path']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function update_doc_item($mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE documentation_items SET title = ?, description = ?, img_path = ? WHERE id = ?');
+   $stmt->bind_param('sssi', $data['title'], $data['description'], $data['img_path'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function delete_doc_item($mysqli, $id) {
+   $stmt = $mysqli->prepare('DELETE FROM documentation_items WHERE id = ?');
+   $stmt->bind_param('i', $id);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function update_doc_config($mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE documentation_config SET page_title = ?, page_button_text = ?, section_title = ?, section_subtitle = ? WHERE id = ?');
+   $stmt->bind_param('ssssi', $data['page_title'], $data['page_button_text'], $data['section_title'], $data['section_subtitle'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
