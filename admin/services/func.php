@@ -148,10 +148,10 @@ function create_home_service_item($mysqli, $data) {
 
 function update_home_service_item($mysqli, $service_id, $data) {
    $stmt = $mysqli->prepare('UPDATE home_service_items SET title = ?, description = ?, icon_path = ? WHERE id = ?');
-   $stmt->bind_param('sssi', $data['title'], $data['description'], $data['icon_path'], $service_id);
+   $stmt->bind_param('ssss', $data['title'], $data['description'], $data['icon_path'], $service_id);
    $result = $stmt->execute();
    $stmt->close();
-
+   
    return $result;
 }
 

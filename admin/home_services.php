@@ -90,6 +90,9 @@ include __DIR__ . "/layouts/head.php";
                         <div class="form-group">
                            <label for="file">File Service </label>
                            <input type="file" name="file" id="file" class="form-control" accept="image/*">
+                           <div id="preview-image">
+                              <img src="" alt="" width="100%">
+                           </div>
                         </div>
                         <div>
                            <button type="submit" class="btn btn-primary">Simpan</button>
@@ -104,6 +107,25 @@ include __DIR__ . "/layouts/head.php";
 </main>
 
 <script>
+   const inptFile = document.querySelector("#form-update-item input[type='file']")
+   inptFile.addEventListener("change", (e) => {
+      e.preventDefault()
+      const previewEl = document.querySelector("#form-update-item #preview-image img")
+      const file = inptFile.files[0]
+      if (file) {
+         const reader = new FileReader()
+
+         reader.onload = (upload) => {
+            previewEl.src = upload.target.result
+         }
+
+         reader.readAsDataURL(file)
+      } else {
+         previewEl.src = ""
+      }
+   })
+
+
    const formElement = document.querySelector("#form-update-config")
    formElement.addEventListener("submit", (e) => {
       e.preventDefault()
@@ -148,7 +170,7 @@ include __DIR__ . "/layouts/head.php";
             title: "Berhasil menyimpan data",
             showConfirmButton: false,
             timer: 1500
-         })
+         }).then(() => window.location.reload())
       }).catch(err => {
          console.log(err)
          Swal.fire({
@@ -158,12 +180,23 @@ include __DIR__ . "/layouts/head.php";
             timer: 1500
          })
       })
+      document.querySelector("#form-update-item")?.setAttribute("state", "add")
    })
 
    document.addEventListener("click", (e) => {
       const clickedEl = e.target
       if (clickedEl.className.includes("button-edit")) {
-         console.log("EDIT")
+         const id = clickedEl.getAttribute("data-id")
+         const formUpdateItem = document.querySelector("#form-update-item")
+         formUpdateItem.setAttribute("state", "edit")
+         fetch("action/get_service_by_id.php?id=" + id).then(async res => {
+            if (res.status >= 400) throw res
+            const result = await res.json()
+            formUpdateItem.querySelector("#id").value = result.data.id
+            formUpdateItem.querySelector("#title").value = result.data.title
+            formUpdateItem.querySelector("#description").value = result.data.description
+            formUpdateItem.querySelector("#preview-image img").src = result.data.icon_path ? "/" + result.data.icon_path : ""
+         }).catch(err => console.error(err))
       }
       if (clickedEl.className.includes("button-delete")) {
          const id = clickedEl.getAttribute("data-id")
@@ -184,24 +217,23 @@ include __DIR__ . "/layouts/head.php";
                   body: form
                }).then(async res => {
                   if (res.status >= 400) throw res
-                  const data = await res.json()
-
-                  const elParent = e.target.parentNode
-                  elParent.remove()
-
                   Swal.fire({
+                     icon: "success",
                      title: "Berhasil dihapus!",
                      text: "File gambar telah dihapus",
-                     icon: "success"
-                  })
+                     showConfirmButton: false,
+                     timer: 1500
+                  }).then(() => window.location.reload())
                }).catch(err => {
                   console.log(err)
 
                   Swal.fire({
                      title: "Gagal dihapus!",
                      text: "File gambar gagal dihapus",
-                     icon: "error"
-                  })
+                     icon: "error",
+                     showConfirmButton: false,
+                     timer: 1500
+                  }).then(() => window.location.reload())
                })
             }
          })
