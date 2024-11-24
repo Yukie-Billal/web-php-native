@@ -55,7 +55,7 @@ function get_home_service_config($mysqli) {
 }
 
 function get_home_service_items($mysqli) {
-   return select_one($mysqli, "SELECT * FROM home_service_items");
+   return select_many($mysqli, "SELECT * FROM home_service_items");
 }
 
 function get_product_config($mysqli) {

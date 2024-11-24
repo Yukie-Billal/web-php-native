@@ -45,7 +45,11 @@ function is_active_page($page, $active_page) {
          const form = new FormData()
          const allInp = document.querySelectorAll(`#${formId} [name]`)
          allInp.forEach(item => {
-            form.append(item.getAttribute("name"), item?.value || "")
+            if (item.getAttribute("type") == "file") {
+               form.append(item.getAttribute("name"), item?.files[0] || "")
+            } else {
+               form.append(item.getAttribute("name"), item?.value || "")
+            }
          });
          return form
       }
