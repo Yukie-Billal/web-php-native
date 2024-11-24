@@ -139,7 +139,7 @@ include __DIR__ . "/layouts/head.php";
    formElement.addEventListener("submit", (e) => {
       e.preventDefault()
       const form = get_form_body("form-update-config")
-      fetch("action/update_prduct_config.php", {
+      fetch("action/update_product_config.php", {
          method: "POST",
          body: form
       }).then(async res => {

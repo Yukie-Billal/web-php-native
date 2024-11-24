@@ -190,3 +190,11 @@ function delete_product_item($mysqli, $id) {
    $stmt->close();
    return $result;
 }
+
+function update_product_config($mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE product_config SET page_title = ?, page_button_text = ?, section_title = ?, section_description = ? WHERE id = ?');
+   $stmt->bind_param('ssssi', $data['page_title'], $data['page_button_text'], $data['section_title'], $data['section_description'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
