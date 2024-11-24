@@ -82,6 +82,10 @@ function get_documentation_items($mysqli) {
    return select_many($mysqli, "SELECT * FROM documentation_items");
 }
 
+function get_documentation_item_by_id($mysqli, $id) {
+   return select_by_id($mysqli, "SELECT * FROM documentation_items", $id);
+}
+
 function get_contact_config($mysqli) {
    return select_one($mysqli, "SELECT * FROM contact_config");
 }

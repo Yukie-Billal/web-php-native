@@ -27,12 +27,12 @@ if (!$data['description']) {
    return;
 }
 
-$product = get_product_item_by_id($mysqli, $data["id"]);
+$product = get_documentation_item_by_id($mysqli, $data["id"]);
 
 $file_path = $product['img_path'];
 if ($file) {
    if ($uploaded_path !== $file_path) {
-      $uploaded_path = upload_image($file, "assets/upload/products/");
+      $uploaded_path = upload_image($file, "assets/upload/documentations/");
       if (!$uploaded_path) {;
          create_response(null, "Gagal menyimpan file", 500, "file");;
          return;
@@ -43,7 +43,7 @@ if ($file) {
 }
 
 $data['img_path'] = $file_path;
-$result_query = update_product_item($mysqli, $data);
+$result_query = update_doc_item($mysqli, $data);
 if (!$result_query) {
    create_response(null, 'Gagal mwnyimpan data', 500, 'database error');
    return;

@@ -13,13 +13,13 @@ if (!isset($_POST["id"]) || !$_POST['id']) {
 }
 
 $id = $_POST['id'];
-$product = get_product_item_by_id($mysqli, $id);
+$product = get_documentation_item_by_id($mysqli, $id);
 if (!$product) {
    create_response(null, 'not found',404, null);
    return;
 }
 
-$result = delete_product_item($mysqli, $id);
+$result = delete_doc_item($mysqli, $id);
 if (!$result) {
    create_response(null, '', 500, null);
    return;

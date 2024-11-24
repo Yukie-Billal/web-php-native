@@ -167,7 +167,7 @@ include __DIR__ . "/layouts/head.php";
    formItem.addEventListener("submit", e => {
       e.preventDefault()
       const form = get_form_body("form-update-item")
-      const url = e.target.getAttribute("state") == "add" ? "action/create_product_item.php" : "action/update_product_item.php"
+      const url = e.target.getAttribute("state") == "add" ? "action/create_doc_item.php" : "action/update_doc_item.php"
       fetch(url, {
          method: "POST",
          body: form
@@ -198,7 +198,7 @@ include __DIR__ . "/layouts/head.php";
          const id = clickedEl.getAttribute("data-id")
          const formUpdateItem = document.querySelector("#form-update-item")
          formUpdateItem.setAttribute("state", "edit")
-         fetch("action/get_product_by_id.php?id=" + id).then(async res => {
+         fetch("action/get_doc_by_id.php?id=" + id).then(async res => {
             if (res.status >= 400) throw res
             const result = await res.json()
             formUpdateItem.querySelector("#id").value = result.data.id
@@ -221,7 +221,7 @@ include __DIR__ . "/layouts/head.php";
             if (result.isConfirmed) {
                const form = new FormData()
                form.append("id", id)
-               fetch("action/delete_product_item.php", {
+               fetch("action/delete_doc_item.php", {
                   method: 'POST',
                   body: form
                }).then(async res => {

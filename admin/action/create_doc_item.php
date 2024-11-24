@@ -25,14 +25,14 @@ if (!$data['description']) {
 
 $file = $_FILES["file"];
 
-$file_path = upload_image($file, "assets/upload/products/");
+$file_path = upload_image($file, "assets/upload/documentations/");
 if (!$file_path) {;
    create_response(null, "Gagal menyimpan file", 500, "file");;
    return;
 }
 
 $data['img_path'] = $file_path;
-$result_query = create_product_item($mysqli, $data);
+$result_query = create_doc_item($mysqli, $data);
 
 if (!$result_query) {
    create_response(null, 'Gagal menyimpan data', 500, 'database error');
