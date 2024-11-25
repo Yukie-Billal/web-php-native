@@ -6,7 +6,7 @@ include __DIR__ . "/services/product.php";
 
 $config = get_product_config($connection);
 $items = get_product_items($connection);
-
+$performance = get_product_performance($connection);
 ?>
 
 <body>
@@ -73,11 +73,11 @@ $items = get_product_items($connection);
                   </thead>
                   <tbody>
                      <tr class="table-primary">
-                        <td class="text-center fw-medium">3,19%</td>
-                        <td class="text-center fw-medium">1,90 kg</td>
-                        <td class="text-center fw-medium">1,31</td>
-                        <td class="text-center fw-medium">28,44 hari</td>
-                        <td class="text-center fw-medium">491</td>
+                        <td class="text-center fw-medium"><?= $performance['mortalitas'] ?></td>
+                        <td class="text-center fw-medium"><?= $performance['body_weight'] ?></td>
+                        <td class="text-center fw-medium"><?= $performance['fcr'] ?></td>
+                        <td class="text-center fw-medium"><?= $performance['umur_panen'] ?></td>
+                        <td class="text-center fw-medium"><?= $performance['index_performance'] ?></td>
                      </tr>
                   </tbody>
                </table>

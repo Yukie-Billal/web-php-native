@@ -113,3 +113,15 @@ slides_seeder($connection, $home_slide_datas);
 function get_slides($connetion) {
    return select($connetion, "SELECT * FROM home_slider");
 }
+
+function get_visi($connection) {
+   return select($connection, "SELECT * FROM home_visi")->fetch_assoc();
+}
+
+function get_misi($connection) {
+   return select($connection, "SELECT * FROM home_misi")->fetch_assoc();
+}
+
+function get_misi_items($connection) {
+   return select($connection, "SELECT * FROM home_misi_items ORDER BY order_number");
+}

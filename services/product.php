@@ -37,3 +37,7 @@ function get_product_config($connection) {
 function get_product_items($connection) {
    return select($connection, "SELECT * FROM product_items");
 }
+
+function get_product_performance($connection) {
+   return select($connection, "SELECT * FROM product_performance")->fetch_assoc();
+}
