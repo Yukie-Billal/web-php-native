@@ -23,31 +23,27 @@ $items = get_product_items($connection);
             <a class="btn btn-primary text-uppercase" style="width: fit-content;" href="#product-section"><?= $config['page_button_text'] ?></a>
          </div>
       </div>
-      <div id="product-section" class="container-fluid px-0">
+      <div id="product-section" class="container-fluid">
          <div class="row mt-5">
             <div class="col-12 py-5">
                <h6 class="text-center fs-2 fw-semibold"><?= $config['section_title'] ?></h6>
                <h6 class="text-center fs-5 fw-medium"><?= $config['section_description'] ?></h6>
             </div>
          </div>
-         <div class="row px-2">
+         <div class="row">
             <div class="col-12">
                <div class="owl-carousel owl-theme">
-                  <?php
-                  foreach ($items as $key => $item) {
-                     $html = '<div class="item position-relative">';
-                     $html .= '<div class="img-wrapper">';
-                     $html .= '<img src="' . $item['img_path'] . '" alt="..">';
-                     $html .= '</div>';
-                     $html .= '<div class="text-wrapper mt-3">';
-                     $html .= '<h6>' . $item['title'] . '</h6>';
-                     $html .= '<p>' . $item['description'] . '</p>';
-                     $html .= '</div>';
-                     $html .= '</div>';
-
-                     echo $html;
-                  }
-                  ?>
+                  <?php foreach ($items as $key => $item): ?>
+                     <div class="item position-relative">
+                        <div class="img-wrapper">
+                           <img src="<?= $item['img_path'] ?>" alt="..">
+                        </div>
+                        <div class="text-wrapper mt-3">
+                           <h6><?= $item['title'] ?></h6>
+                           <p><?= $item['description'] ?></p>
+                        </div>
+                     </div>
+                  <?php endforeach; ?>
 
                </div>
                <div class="col-12 d-flex justify-content-between mt-4 px-5">
@@ -56,10 +52,41 @@ $items = get_product_items($connection);
                </div>
             </div>
          </div>
-         <?php
-         include "./footer.php";
-         ?>
       </div>
+      <div id="performance-section" class="container-fluid">
+         <div class="row mt-5">
+            <div class="col-12 py-5">
+               <div class="text-center fs-2 fw-semibold">Performa Farm GKA</div>
+            </div>
+         </div>
+         <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+               <table class="table table-hover table-bordered table-striped">
+                  <thead>
+                     <tr class="table-info">
+                        <th class="text-center">Mortalitas</th>
+                        <th class="text-center">Body Weight</th>
+                        <th class="text-center">Fcr</th>
+                        <th class="text-center">Umur Panen</th>
+                        <th class="text-center">Index Performance</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr class="table-primary">
+                        <td class="text-center fw-medium">3,19%</td>
+                        <td class="text-center fw-medium">1,90 kg</td>
+                        <td class="text-center fw-medium">1,31</td>
+                        <td class="text-center fw-medium">28,44 hari</td>
+                        <td class="text-center fw-medium">491</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <?php
+      include "./footer.php";
+      ?>
       <script>
          const owl = $('.owl-carousel').owlCarousel({
             loop: true,
