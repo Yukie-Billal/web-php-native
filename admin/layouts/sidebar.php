@@ -44,6 +44,12 @@
                      </a>
                   </li>
                   <li class="nav-item">
+                     <a href="/admin/visi_misi.php" class="nav-link <?= is_active_page("visi_misi", $active_page) ?>">
+                        <i class="nav-icon bi bi-circle"></i>
+                        <p>Visi Misi</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
                      <a href="/admin/home_services.php" class="nav-link <?= is_active_page("services", $active_page) ?>">
                         <i class="nav-icon bi bi-circle"></i>
                         <p>Service</p>

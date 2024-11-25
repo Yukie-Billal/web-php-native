@@ -22,6 +22,7 @@ function select_by_id($mysqli , $query, $id) {
    return $result->fetch_assoc();
 }
 
+// section get query
 function get_app_config($mysqli) {
    return select_one($mysqli , "SELECT * FROM app_config");
 }
@@ -62,6 +63,22 @@ function get_home_service_item_by_id($mysqli, $id) {
    return select_by_id($mysqli, "SELECT * FROM home_service_items", $id);
 }
 
+function get_visi($mysqli) {
+   return select_one($mysqli, "SELECT * FROM home_visi");
+}
+
+function get_misi($mysqli) {
+   return select_one($mysqli, "SELECT * FROM home_misi");
+}
+
+function get_misi_items($mysqli) {
+   return select_many($mysqli, "SELECT * from home_misi_items");
+}
+
+function get_misi_item_by_id($mysqli, $id) {
+   return select_by_id($mysqli, "SELECT * FROM home_misi_items", $id);
+}
+
 function get_product_config($mysqli) {
    return select_one($mysqli, "SELECT * FROM product_config");
 }
@@ -89,6 +106,8 @@ function get_documentation_item_by_id($mysqli, $id) {
 function get_contact_config($mysqli) {
    return select_one($mysqli, "SELECT * FROM contact_config");
 }
+
+// end section get query
 
 function insert_home_slide($mysqli, $data) {
    $stmt = $mysqli->prepare("INSERT INTO home_slider (img_path) VALUES (?)");
@@ -144,6 +163,46 @@ function update_home_service_config(mysqli $mysqli, $service_id, $data) {
    } else {
       return false;
    }
+}
+
+function update_visi(mysqli $mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE home_visi SET visi_title = ?, visi = ? WHERE id = ?');
+   $stmt->bind_param('ssi', $data['visi_title'], $data['visi'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function update_misi(mysqli $mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE home_misi SET misi_title = ?, misi = ? WHERE id = ?');
+   $stmt->bind_param('ssi', $data['misi_title'], $data['misi'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function create_misi_item(mysqli $mysqli, $data) {
+   $stmt = $mysqli->prepare('INSERT INTO home_misi_items (order_number, misi) VALUES (?, ?)');
+   $stmt->bind_param('ss', $data['order_number'], $data['misi']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function update_misi_item(mysqli $mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE home_misi_items SET order_number = ?, misi = ? WHERE id = ?');
+   $stmt->bind_param('ssi', $data['order_number'], $data['misi'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
+}
+
+function delete_misi_item(mysqli $mysqli, $data) {
+   $stmt = $mysqli->prepare('DELETE FROM home_misi_items WHERE id = ?');
+   $stmt->bind_param('i', $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;
 }
 
 function create_home_service_item($mysqli, $data) {

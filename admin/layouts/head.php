@@ -7,6 +7,7 @@ $available_page = [
    "/admin/home_feature.php" => "features",
    "/admin/home_about.php" => "abouts",
    "/admin/home_services.php" => "services",
+   "/admin/visi_misi.php" => "visi_misi",
    "/admin/product.php" => "product",
    "/admin/documentation.php" => "documentations",
    "/admin/contact.php" => "contacts",
