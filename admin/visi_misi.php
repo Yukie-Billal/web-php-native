@@ -97,8 +97,8 @@ include __DIR__ . "/layouts/head.php";
                                        <td><?= $d['misi'] ?></td>
                                        <td>
                                           <div class="d-flex justify-content-center align-items-center gap-1">
-                                             <button class="btn btn-success btn-sm">Edit</button>
-                                             <button class="btn btn-danger btn-sm">Hapus</button>
+                                             <button class="btn btn-success btn-sm btn-edit" data-id="<?= $d['id'] ?>">Edit</button>
+                                             <button class="btn btn-danger btn-sm btn-delete" data-id="<?= $d['id'] ?>">Hapus</button>
                                           </div>
                                        </td>
                                     </tr>
@@ -119,19 +119,12 @@ include __DIR__ . "/layouts/head.php";
                      <form class="row gap-3" id="form-update-item" state="add">
                         <input type="text" name="id" id="id" hidden>
                         <div class="form-group">
-                           <label for="title">Judul </label>
-                           <input type="text" name="title" id="title" placeholder="Judul ..." class="form-control">
+                           <label for="order_number">Nomor urut </label>
+                           <input type="number" name="order_number" id="order_number" placeholder="" class="form-control">
                         </div>
                         <div class="form-group">
-                           <label for="description">Deskripsi </label>
-                           <input type="text" name="description" id="description" placeholder="Deskripsi ..." class="form-control">
-                        </div>
-                        <div class="form-group">
-                           <label for="file">File Service </label>
-                           <input type="file" name="file" id="file" class="form-control" accept="image/*">
-                           <div id="preview-image">
-                              <img src="" alt="" width="100%">
-                           </div>
+                           <label for="misi">Misi </label>
+                           <textarea type="text" name="misi" id="misi" placeholder="Misi ..." class="form-control" rows="2"></textarea>
                         </div>
                         <div>
                            <button type="submit" class="btn btn-primary">Simpan</button>
@@ -202,11 +195,64 @@ include __DIR__ . "/layouts/head.php";
       })
    })
 
+   function handleEditButton(clickedEl) {
+      const id = clickedEl.getAttribute("data-id")
+      const formUpdateItem = document.querySelector("#form-update-item")
+      formUpdateItem.setAttribute("state", "edit")
+      fetch("action/visi_misi/get_misi_by_id.php?id=" + id).then(async res => {
+         if (res.status >= 400) throw res
+         const result = await res.json()
+         formUpdateItem.querySelector("#id").value = result.data.id
+         formUpdateItem.querySelector("#order_number").value = result.data.order_number
+         formUpdateItem.querySelector("#misi").value = result.data.misi
+      }).catch(err => console.error(err))
+   }
+
+   async function handleDeleteButton(clickedEl) {
+      const id = clickedEl.getAttribute("data-id")
+      const result = await Swal.fire({
+         title: "Yakin untuk hapus?",
+         text: "Tidak dapat dikembalikan",
+         icon: "warning",
+         showCancelButton: true,
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+         confirmButtonText: "Ya, hapus!"
+      })
+      if (result.isConfirmed) {
+         const form = new FormData()
+         form.append("id", id)
+         fetch("action/visi_misi/delete_misi_item.php", {
+            method: 'POST',
+            body: form
+         }).then(async res => {
+            if (res.status >= 400) throw res
+            Swal.fire({
+               icon: "success",
+               title: "Berhasil dihapus!",
+               text: "Data telah dihapus",
+               showConfirmButton: false,
+               timer: 1500
+            }).then(() => window.location.reload())
+         }).catch(err => {
+            console.log(err)
+
+            Swal.fire({
+               title: "Gagal dihapus!",
+               text: "Data gagal dihapus",
+               icon: "error",
+               showConfirmButton: false,
+               timer: 1500
+            })
+         })
+      }
+   }
+
    const formItem = document.querySelector("#form-update-item")
    formItem.addEventListener("submit", e => {
       e.preventDefault()
       const form = get_form_body("form-update-item")
-      const url = e.target.getAttribute("state") == "add" ? "action/create_product_item.php" : "action/update_product_item.php"
+      const url = e.target.getAttribute("state") == "add" ? "action/visi_misi/create_misi_item.php" : "action/visi_misi/update_misi_item.php"
       fetch(url, {
          method: "POST",
          body: form
@@ -233,58 +279,11 @@ include __DIR__ . "/layouts/head.php";
 
    document.addEventListener("click", (e) => {
       const clickedEl = e.target
-      if (clickedEl.className.includes("button-edit")) {
-         const id = clickedEl.getAttribute("data-id")
-         const formUpdateItem = document.querySelector("#form-update-item")
-         formUpdateItem.setAttribute("state", "edit")
-         fetch("action/get_product_by_id.php?id=" + id).then(async res => {
-            if (res.status >= 400) throw res
-            const result = await res.json()
-            formUpdateItem.querySelector("#id").value = result.data.id
-            formUpdateItem.querySelector("#title").value = result.data.title
-            formUpdateItem.querySelector("#description").value = result.data.description
-            formUpdateItem.querySelector("#preview-image img").src = result.data.img_path ? "/" + result.data.img_path : ""
-         }).catch(err => console.error(err))
+      if (clickedEl.className.includes("btn-edit")) {
+         handleEditButton(clickedEl)
       }
-      if (clickedEl.className.includes("button-delete")) {
-         const id = clickedEl.getAttribute("data-id")
-         Swal.fire({
-            title: "Yakin untuk hapus?",
-            text: "Tidak dapat dikembalikan",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Ya, hapus!"
-         }).then((result) => {
-            if (result.isConfirmed) {
-               const form = new FormData()
-               form.append("id", id)
-               fetch("action/delete_product_item.php", {
-                  method: 'POST',
-                  body: form
-               }).then(async res => {
-                  if (res.status >= 400) throw res
-                  Swal.fire({
-                     icon: "success",
-                     title: "Berhasil dihapus!",
-                     text: "File gambar telah dihapus",
-                     showConfirmButton: false,
-                     timer: 1500
-                  }).then(() => window.location.reload())
-               }).catch(err => {
-                  console.log(err)
-
-                  Swal.fire({
-                     title: "Gagal dihapus!",
-                     text: "File gambar gagal dihapus",
-                     icon: "error",
-                     showConfirmButton: false,
-                     timer: 1500
-                  })
-               })
-            }
-         })
+      if (clickedEl.className.includes("btn-delete")) {
+         handleDeleteButton(clickedEl)
       }
    })
 </script>

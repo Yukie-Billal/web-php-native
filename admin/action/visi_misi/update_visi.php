@@ -8,7 +8,7 @@ validate_method("POST");
 
 $data = $_POST;
 
-if (!isset($data["id"]) && !$data["id"]) {
+if (!isset($data["id"]) || !$data["id"]) {
    create_response(null, "id wajib diisi", 400, "id");
    return;
 }
