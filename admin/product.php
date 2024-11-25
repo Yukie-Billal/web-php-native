@@ -8,6 +8,7 @@ if (!check_auth()) {
 
 $product_config = get_product_config($mysqli);
 $product_items = get_product_items($mysqli);
+$performance = get_product_performance($mysqli);
 
 include __DIR__ . "/layouts/head.php";
 
@@ -111,6 +112,43 @@ include __DIR__ . "/layouts/head.php";
                </div>
             </div>
          </div>
+         <div class="row">
+            <div class="col-12">
+               <div class="card mb-4">
+                  <div class="card-header">
+                     <h3 class="card-title">Produk Performance</h3>
+                  </div>
+                  <div class="card-body">
+                     <form class="row row-gap-3" id="form-update-performance">
+                        <input type="text" name="id" id="id" value="<?= $performance['id'] ?>" hidden>
+                        <div class="form-group col-12 col-md-4">
+                           <label for="mortalitas">Mortalitas</label>
+                           <input type="text" name="mortalitas" id="mortalitas" placeholder="Judul halaman ..." class="form-control" value="<?= $performance['mortalitas'] ?>">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                           <label for="body_weight">Body weight </label>
+                           <input type="text" name="body_weight" id="body_weight" placeholder="Body weight ..." class="form-control" value="<?= $performance['body_weight'] ?>">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                           <label for="fcr">fcr</label>
+                           <input type="text" name="fcr" id="fcr" placeholder="fcr ..." class="form-control" value="<?= $performance['fcr'] ?>">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                           <label for="umur_panen">Umur Panen</label>
+                           <input type="text" name="umur_panen" id="umur_panen" placeholder="Umur Panen ..." class="form-control" value="<?= $performance['umur_panen'] ?>">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                           <label for="index_performance">Index Performance</label>
+                           <input type="text" name="index_performance" id="index_performance" placeholder="Index Performance ..." class="form-control" value="<?= $performance['index_performance'] ?>">
+                        </div>
+                        <div>
+                           <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 </main>
@@ -140,6 +178,34 @@ include __DIR__ . "/layouts/head.php";
       e.preventDefault()
       const form = get_form_body("form-update-config")
       fetch("action/update_product_config.php", {
+         method: "POST",
+         body: form
+      }).then(async res => {
+         if (res.status >= 400) throw res
+         const result = await res.json()
+         console.log(result)
+         Swal.fire({
+            icon: 'success',
+            title: "Berhasil menyimpan perubahan",
+            showConfirmButton: false,
+            timer: 1500
+         })
+      }).catch(err => {
+         console.error(err)
+         Swal.fire({
+            icon: 'succes',
+            title: err.message || "Berhasil menyimpan perubahan",
+            showConfirmButton: false,
+            timer: 1500
+         })
+      })
+   })
+
+   const performanceForm = document.querySelector("#form-update-performance")
+   performanceForm.addEventListener("submit", (e) => {
+      e.preventDefault()
+      const form = get_form_body("form-update-performance")
+      fetch("action/product/update_performance.php", {
          method: "POST",
          body: form
       }).then(async res => {

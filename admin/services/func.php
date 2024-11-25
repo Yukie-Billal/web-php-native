@@ -91,6 +91,10 @@ function get_product_item_by_id($mysqli, $id) {
    return select_by_id($mysqli, "SELECT * FROM product_items",  $id);
 }
 
+function get_product_performance($mysqli) {
+   return select_one($mysqli, "SELECT * FROM product_performance");
+}
+
 function get_documentation_config($mysqli) {
    return select_one($mysqli, "SELECT * FROM documentation_config");
 }
@@ -292,6 +296,14 @@ function update_doc_config($mysqli, $data) {
    $result = $stmt->execute();
    $stmt->close();
    return $result;
+}
+
+function update_product_performance($mysqli, $data) {
+   $stmt = $mysqli->prepare('UPDATE product_performance SET mortalitas = ?, body_weight = ?, fcr = ?, umur_panen = ?, index_performance = ? WHERE id = ?');
+   $stmt->bind_param("sssssi", $data['mortalitas'], $data['body_weight'], $data['fcr'], $data['umur_panen'], $data['index_performance'], $data['id']);
+   $result = $stmt->execute();
+   $stmt->close();
+   return $result;  
 }
 
 function update_contact_config($mysqli, $data) {
