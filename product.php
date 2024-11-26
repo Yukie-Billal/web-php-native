@@ -61,22 +61,32 @@ $performance = get_product_performance($connection);
          </div>
          <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-               <table class="table table-hover table-bordered table-striped">
+               <table class="table table-hover table-bordered table-striped table-primary">
                   <thead>
-                     <tr class="table-info">
-                        <th class="text-center">Mortalitas</th>
-                        <th class="text-center">Body Weight</th>
-                        <th class="text-center">Fcr</th>
-                        <th class="text-center">Umur Panen</th>
-                        <th class="text-center">Index Performance</th>
+                     <tr>
+                        <th class="text-center">Item</th>
+                        <th class="text-center">Performance</th>
                      </tr>
                   </thead>
                   <tbody>
-                     <tr class="table-primary">
+                     <tr class="table-info">
+                        <td class="text-center">Mortalitas</td>
                         <td class="text-center fw-medium"><?= $performance['mortalitas'] ?></td>
+                     </tr>
+                     <tr class="table-info">
+                        <td class="text-center">Body Weight</td>
                         <td class="text-center fw-medium"><?= $performance['body_weight'] ?></td>
+                     </tr>
+                     <tr class="table-info">
+                        <td class="text-center">Fcr</td>
                         <td class="text-center fw-medium"><?= $performance['fcr'] ?></td>
+                     </tr>
+                     <tr class="table-info">
+                        <td class="text-center">Umur Panen</td>
                         <td class="text-center fw-medium"><?= $performance['umur_panen'] ?></td>
+                     </tr>
+                     <tr class="table-info">
+                        <td class="text-center">Index Performance</td>
                         <td class="text-center fw-medium"><?= $performance['index_performance'] ?></td>
                      </tr>
                   </tbody>

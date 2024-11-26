@@ -100,3 +100,8 @@
 #footer {
    background-color: #3838c5 !important;
 }
+
+#performance-section table>thead>tr>th {
+   background-color: #4a4aec !important;
+   color: white;
+}
